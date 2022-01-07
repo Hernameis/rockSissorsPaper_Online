@@ -1,0 +1,47 @@
+package com.tanktank;
+
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class Client extends Frame{
+	Panel startPanel;
+
+	Client(){
+		startPanel=new Panel();
+		startPanel.setLayout(new BorderLayout());
+		a.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+			}
+		});
+		
+		String nameOfGame="TankTank";
+		
+		String makerOfGame="제작자 : 민성호";
+		String pleasePressMsg="진행하려면 클릭하세요";
+		Panel downPanel=new Panel();
+		downPanel.setLayout(new GridLayout(2,1));
+		Label gameMakerLabel=new Label(makerOfGame);
+		Button pleasePressLabel=new Button(pleasePressMsg);
+		downPanel.add(gameMakerLabel);
+		downPanel.add(pleasePressLabel);
+		
+		Label gameNameLabel=new Label(nameOfGame);
+		
+		startPanel.add(gameNameLabel, BorderLayout.CENTER);
+		startPanel.add(downPanel, BorderLayout.SOUTH);
+		
+		add(startPanel);
+		setBounds(100,100,500,500);
+		setVisible(true);
+		this.setResizable(false);
+	}
+	
+	public static void main(String[] args) {
+		Client newGame=new Client();
+	}
+
+}

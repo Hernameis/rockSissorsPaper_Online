@@ -1,0 +1,29 @@
+package com.tanktank.server;
+
+import java.io.IOException;
+import java.net.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		ServerSocket serv=null;
+		Socket sock=null;
+		try {
+			serv=new ServerSocket(5000);
+			sock=serv.accept();
+			
+			InetAddress add=sock.getInetAddress();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				sock.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+}

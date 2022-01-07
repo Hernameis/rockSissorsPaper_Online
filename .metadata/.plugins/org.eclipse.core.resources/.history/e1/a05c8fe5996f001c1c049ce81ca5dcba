@@ -1,0 +1,37 @@
+package com.tanktank.server;
+
+import java.io.IOException;
+import java.net.*;
+
+public class Main extends Thread{
+	Socket sock;
+
+	public Main(Socket socket){
+		sock=socket;
+	}
+	
+	public static void main(String[] args) {
+		ServerSocket serv=null;
+		Socket socket=null;
+		try {
+			serv=new ServerSocket(5000);
+			while(true){
+				socket=serv.accept();
+				System.out.println("Á¢¼ÓÇÔ "+socket.getInetAddress().getHostAddress());				
+				Thread a=new Main(socket);
+				a.start();
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				socket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+}

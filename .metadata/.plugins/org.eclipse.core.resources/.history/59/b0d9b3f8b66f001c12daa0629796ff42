@@ -1,18 +1,17 @@
 package com.tanktank.client;
 
+import java.io.*;
 import java.awt.*;
+import java.net.*;
+import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
 
-public class Main extends Frame{
+public class ClientMain extends Frame{
 	String serverIP;
 	
 	Panel mainPanel;
@@ -24,8 +23,12 @@ public class Main extends Frame{
 	Button rankingButtonInRobby;
 	Button exitButtonInRobby;
 	Button backButtonInRankingBoard;
+	
+	Socket sock;
+	InputStream is;
+	OutputStream os;
 
-	Main(){
+	ClientMain(){
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -123,7 +126,15 @@ public class Main extends Frame{
 		rankingButtonInRobby.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				viewRankingBoard();
+				try {
+					viewRankingBoard();
+				} catch (UnknownHostException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		
@@ -142,23 +153,25 @@ public class Main extends Frame{
 		
 		// 소켓 열기
 
-		while(true){
-			;
-		}
 
 		
 		mainPanel.removeAll();
 		mainPanel.add(robbyPanel);
 		this.revalidate();
+
+
 		
-		byte[] byteIp={127,0,0,1};
-		Socket sock=null;
+	}
+	
+	public void ipConfirmed(String inputIp){
+		serverIP=inputIp;
 		try {
-			InetAddress addr=InetAddress.getByAddress(byteIp);
-			sock=new Socket();
+			sock=new Socket("127.0.0.1", 5000);
 			
 			
 		} catch (UnknownHostException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
 			e1.printStackTrace();
 		} finally {
 			try {
@@ -168,11 +181,6 @@ public class Main extends Frame{
 				e1.printStackTrace();
 			}
 		}
-		
-	}
-	
-	public void ipConfirmed(String inputIp){
-		serverIP=inputIp;
 	}
 	
 	public void enterPlayGame(){
@@ -183,7 +191,8 @@ public class Main extends Frame{
 		
 	}
 	
-	public void viewRankingBoard(){
+	public void viewRankingBoard() throws UnknownHostException, IOException{
+		
 		rankingBoardPanel=new Panel();
 		rankingBoardPanel.setLayout(new BorderLayout());
 		Label rankingBoardLabel=new Label("Ranking Board");
@@ -235,7 +244,7 @@ public class Main extends Frame{
 	}
 	
 	public static void main(String[] args) {
-		Main newGame=new Main();
+		ClientMain newGame=new ClientMain();
 	}
 	
 }

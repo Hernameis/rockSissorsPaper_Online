@@ -94,7 +94,7 @@ public class ClientMain extends Frame{
 		confirmIp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ipConfirmed(ip.getText());
+				ipConfirmed(ip.getText());					
 				System.out.println(ip.getText());
 				inputServerDialog.dispose();
 			}
@@ -159,27 +159,23 @@ public class ClientMain extends Frame{
 		mainPanel.add(robbyPanel);
 		this.revalidate();
 
-		try {
-			sock=new Socket("127.0.0.1", 5000);
-			
-			
-		} catch (UnknownHostException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} finally {
-			try {
-				sock.close();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		}
+
 		
 	}
 	
 	public void ipConfirmed(String inputIp){
-		serverIP=inputIp;
+		if(serverIP==null){	// 이게 아니라 ip가 널이 아니면 창을 안열어야지...
+			serverIP=inputIp;
+			try {
+				sock=new Socket(serverIP, 5000);	
+				
+//			sock.close();	// 클로즈를 종료할 때 해야 하나?
+			} catch (UnknownHostException e1) {
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}		
 	}
 	
 	public void enterPlayGame(){

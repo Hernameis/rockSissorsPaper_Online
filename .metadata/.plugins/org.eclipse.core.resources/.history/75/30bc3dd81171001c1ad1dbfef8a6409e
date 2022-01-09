@@ -1,0 +1,10 @@
+package com.tanktank.client;
+
+import java.awt.Panel;
+
+public class StartPanel extends Panel{
+	
+	StartPanel(){
+		
+	}
+}

@@ -1,0 +1,42 @@
+package com.tanktank.client;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class MainPanel extends Panel{
+	this.setLayout(new GridLayout(1,1));
+	
+	startPanel=new Panel();
+	startPanel.setLayout(new BorderLayout());
+	
+	String nameOfGame="TankTank";
+	
+	String makerOfGame="maker : minsungho";
+	String pleasePressMsg="please press";
+	Panel downPanel=new Panel();
+	downPanel.setLayout(new GridLayout(2,1));
+	Label gameMakerLabel=new Label(makerOfGame);
+	gameMakerLabel.setAlignment(Label.CENTER);
+	Button pleasePressButton=new Button(pleasePressMsg);
+	pleasePressButton.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			enterGameRobby();
+		}
+	});
+	downPanel.add(pleasePressButton);
+	downPanel.add(gameMakerLabel);
+	
+	Label gameNameLabel=new Label(nameOfGame);
+	gameNameLabel.setAlignment(Label.CENTER);
+	
+	startPanel.add(gameNameLabel, BorderLayout.CENTER);
+	startPanel.add(downPanel, BorderLayout.SOUTH);
+	
+	mainPanel.add(startPanel);
+}

@@ -1,0 +1,11 @@
+package com.tanktank.client;
+
+import java.awt.Frame;
+import java.io.*;
+import java.awt.*;
+import java.net.*;
+import java.util.*;
+
+public class ClientWindow extends Frame{
+
+}

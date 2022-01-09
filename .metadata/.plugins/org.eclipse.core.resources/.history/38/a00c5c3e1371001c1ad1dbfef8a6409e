@@ -1,0 +1,11 @@
+package com.tanktank.client;
+
+import java.awt.BorderLayout;
+import java.awt.Panel;
+
+public class StartPanel extends Panel{
+	
+	StartPanel(){
+		this.setLayout(new BorderLayout());
+	}
+}

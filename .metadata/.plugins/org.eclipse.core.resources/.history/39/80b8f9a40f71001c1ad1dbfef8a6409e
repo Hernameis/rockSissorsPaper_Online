@@ -1,0 +1,11 @@
+package com.tanktank.client;
+
+
+
+public class ClientMain e{
+
+	public static void main(String[] args) {
+		ClientMain newGame=new ClientMain();
+	}
+	
+}

@@ -1,0 +1,14 @@
+package com.tanktank.client;
+
+import java.awt.Label;
+
+public class GameNameLabel extends Label{
+
+	String nameOfGame;
+	
+	public Label(String inputName);
+		
+		nameOfGame=inputName;;
+		this.setAlignment(Label.CENTER);
+	}
+}

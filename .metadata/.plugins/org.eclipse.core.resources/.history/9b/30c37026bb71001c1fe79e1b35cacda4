@@ -1,0 +1,16 @@
+package com.mukzzibba.client.button;
+
+import java.awt.Button;
+
+import com.mukzzibba.client.action.ExitAction;
+
+
+
+public class ExitButton extends Button {
+	ExitAction exit;
+	
+	public ExitButton() {
+		exit=new ExitAction();
+		addActionListener(exit);
+	}
+}

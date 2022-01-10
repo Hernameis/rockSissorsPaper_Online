@@ -1,0 +1,12 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.Panel;
+
+import com.mukzzibba.client.button.ExitButton;
+
+public class RobbyPanel extends Panel{
+	
+	public RobbyPanel() {
+		add(new ExitButton("³ª°¡±â", this))
+	}
+}

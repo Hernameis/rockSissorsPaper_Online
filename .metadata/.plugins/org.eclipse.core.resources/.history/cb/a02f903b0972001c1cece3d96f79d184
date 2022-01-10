@@ -1,0 +1,28 @@
+package com.mukzzibba.server;
+
+import java.util.Random;
+
+public class Calculator {
+	private static int userInt;
+	private static int comInt;
+	private static String userStr;
+	private static String comStr;
+	
+	private Calculator(String msg) {
+		if(msg.equals("rock")){
+			
+		} else if(msg.equals("scis"))
+	}
+	
+	public static ResultData getResult(){
+		ResultData res=new ResultData();
+		
+		return res;
+	}
+	
+	private int getRanNum(){
+		Random ran=new Random();
+		
+		userInt=ran.nextInt()*3;
+	}
+}

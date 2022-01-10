@@ -1,0 +1,13 @@
+package com.mukzzibba.client.data;
+
+import java.awt.Panel;
+
+import com.mukzzibba.client.controller.MainPanel;
+import com.mukzzibba.client.controller.RobbyPanel;
+import com.mukzzibba.client.controller.StartPanel;
+
+public class PanelData {
+	public static MainPanel mainPanel;
+	public static StartPanel startPanel;
+	public static RobbyPanel robbyPanel;
+}

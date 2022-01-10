@@ -1,0 +1,10 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.Panel;
+
+public class RankingPanel extends Panel{
+	
+	public RankingPanel() {
+		
+	}
+}

@@ -1,0 +1,34 @@
+package com.mukzzibba.client.panel;
+
+import java.awt.Button;
+import java.awt.Panel;
+import java.awt.TextField;
+
+import com.mukzzibba.client.button.ExitButton;
+import com.mukzzibba.client.button.RegisterButton;
+
+public class StartPanel extends Panel{
+	TextField serverIp;
+	TextField nickname;
+	TextField password;
+	
+	Button registerButton;
+	Button loginButton;
+	Button exitButton;
+	
+	public StartPanel() {
+		serverIp=new TextField("127.0.0.1");
+		nickname=new TextField("닉네임");
+		password=new TextField("비밀 번호");
+		registerButton=new RegisterButton();
+		loginButton=new LogInButton();
+		exitButton=new ExitButton("나가기");
+		
+		add(serverIp);
+		add(nickname);
+		add(password);
+		add(loginButton);
+		add(registerButton);
+		add(exitButton);
+	}
+}

@@ -1,0 +1,11 @@
+package com.mukzzibba.client.button;
+
+import java.awt.Window;
+
+public class DupCheckButton extends ExitButton {
+
+	public DupCheckButton(String name, Window window) {
+		super(name, window);
+	}
+	
+}

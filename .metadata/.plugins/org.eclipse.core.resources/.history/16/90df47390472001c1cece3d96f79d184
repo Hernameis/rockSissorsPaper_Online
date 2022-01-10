@@ -1,0 +1,10 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.Panel;
+
+import com.mukzzibba.client.button.ButtonWithSendingMsg;
+
+public class DrawPanel extends Panel{
+	ButtonWithSendingMsg scissors;
+	
+}

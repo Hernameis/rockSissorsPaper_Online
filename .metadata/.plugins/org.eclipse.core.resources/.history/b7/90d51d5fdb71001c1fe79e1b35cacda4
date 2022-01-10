@@ -1,0 +1,9 @@
+package com.mukzzibba.client.controller;
+
+import com.mukzzibba.client.data.PanelData;
+
+public class PanelMaker {
+	public static void main(){
+		PanelData.mainPanel=new Panel();
+	}
+}

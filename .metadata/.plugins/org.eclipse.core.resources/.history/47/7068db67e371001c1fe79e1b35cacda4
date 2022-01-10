@@ -1,0 +1,22 @@
+package com.mukzzibba.client.action;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import com.mukzzibba.client.controller.PanelController;
+import com.mukzzibba.client.data.UserData;
+
+
+public class LoginAction{
+
+	public static void login(){
+		System.out.println("로그인 누름");
+		Check
+		if(UserData.userCheck) {
+			PanelController.mainToRobbyPanel();
+		} else {
+			System.out.println("비번이 틀렸습니다");
+		}
+	}
+	
+}

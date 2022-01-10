@@ -1,0 +1,8 @@
+package com.mukzzibba.server;
+
+public class Server {
+	
+	public Server() {
+		
+	}
+}

@@ -1,0 +1,23 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.GridLayout;
+import java.awt.Panel;
+
+import com.mukzzibba.client.button.ButtonWithSendingMsg;
+
+public class DrawPanel extends Panel{
+	ButtonWithSendingMsg rock;
+	ButtonWithSendingMsg scissors;
+	ButtonWithSendingMsg paper;
+	
+	public DrawPanel() {
+		this.setLayout(new GridLayout(1,3));
+		rock=new ButtonWithSendingMsg("rock", "rock");
+		scissors=new ButtonWithSendingMsg("scissors", "scis");
+		paper=new ButtonWithSendingMsg("paper",  "pape");
+		
+		add(rock);
+		add(scissors);
+		add(paper);
+	}
+}

@@ -1,0 +1,7 @@
+package com.mukzzibba.client.button;
+
+public class ToLobbyButton extends Button{
+	
+	public ToLobbyButton(String name) {
+	}
+}

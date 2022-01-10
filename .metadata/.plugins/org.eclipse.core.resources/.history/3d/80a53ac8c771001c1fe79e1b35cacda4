@@ -1,0 +1,10 @@
+package com.mukzzibba.client.controller;
+
+public class DataController extends Thread{
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+}

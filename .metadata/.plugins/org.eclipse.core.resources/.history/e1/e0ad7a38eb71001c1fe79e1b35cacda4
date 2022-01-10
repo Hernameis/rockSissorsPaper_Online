@@ -1,0 +1,12 @@
+package com.mukzzibba.client.socketNetwork;
+
+public class Disconnect {
+	
+	public static void sendBye() {
+		OpenAndCloseSocket.OpenSocket();
+		
+		
+		
+		OpenAndCloseSocket.CloseSocket();
+	}
+}

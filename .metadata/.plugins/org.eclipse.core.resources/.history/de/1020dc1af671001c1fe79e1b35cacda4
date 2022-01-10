@@ -1,0 +1,8 @@
+package com.mukzzibba.client.button;
+
+public class PlayButton extends MenuButton{
+	
+	public PlayButton(String name, String msg) {
+		super(name, msg);
+	}
+}

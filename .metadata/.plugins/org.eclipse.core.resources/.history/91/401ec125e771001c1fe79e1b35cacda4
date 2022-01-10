@@ -1,0 +1,10 @@
+package com.mukzzibba.server;
+
+import java.io.InputStream;
+
+public class StreamController {
+
+	public static InputStream inputStreamOpen(){
+		
+	}
+}

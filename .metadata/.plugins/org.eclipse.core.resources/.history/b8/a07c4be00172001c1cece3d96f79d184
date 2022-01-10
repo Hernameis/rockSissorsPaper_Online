@@ -1,0 +1,25 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.Panel;
+
+import com.mukzzibba.client.button.ExitButton;
+import com.mukzzibba.client.window.ClientFrame;
+
+public class PlayPanel extends Panel{
+	Frame frame;
+	Button me;
+	Button com;
+	ExitButton exit;
+	
+	public PlayPanel() {
+		frame=ClientFrame.getInstance();
+		me=new Button("나");
+		com=new Button("컴");
+		exit=new ExitButton("나가기", frame);
+		
+		add(me);
+		add(com);
+	}
+}

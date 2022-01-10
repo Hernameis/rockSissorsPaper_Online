@@ -1,0 +1,7 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.Panel;
+
+public class RobbyPanel extends Panel{
+
+}

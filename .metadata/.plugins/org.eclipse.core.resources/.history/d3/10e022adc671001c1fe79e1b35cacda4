@@ -1,0 +1,10 @@
+package com.mukzzibba.client.button;
+
+import java.awt.Button;
+
+public class DupCheckButton extends Button {
+
+	public DupCheckButton(String name) {
+	}
+	
+}

@@ -1,0 +1,44 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.GridLayout;
+import java.awt.Panel;
+
+import com.mukzzibba.client.data.PanelData;
+
+public class PanelController {
+	
+	public PanelController() {
+		makePanel();
+		mainToStartPanel();
+
+	}
+	
+	
+	public static void makeMainPanel(){
+		PanelData.mainPanel=new Panel();
+		PanelData.mainPanel.setLayout(new GridLayout(1,1));
+	}
+	
+	public static void setMainPanel() {
+		PanelData.mainPanel.setLayout(new GridLayout(1,1));
+	}
+	
+	public static void makeStartPanel(){
+		PanelData.startPanel=new Panel();
+	}
+	
+
+	public static void makeRobbyPanel(){
+		PanelData.robbyPanel=new Panel();
+		
+	}
+	
+	public static void mainToStartPanel(){
+		PanelData.mainPanel.removeAll();
+		PanelData.mainPanel.add(PanelData.startPanel);
+	}
+	
+//	public static void mainToRobbyPanel(){
+		
+//	}
+}

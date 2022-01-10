@@ -1,0 +1,20 @@
+package com.mukzzibba.server;
+
+import java.io.InputStream;
+import java.io.InputStreamReadimport java.io.OutputStreamWriter;
+er;
+import java.io.OutputStream;
+import java.net.Socket;
+
+public class StreamController {
+
+	InputStream is;
+	OutputStream os;
+	InputStreamReader isr;
+	OutputStreamWriter osw;
+	
+	public static InputStream inputStreamOpen(Socket sock){
+		
+		return sock.getInputStream();
+	}
+}

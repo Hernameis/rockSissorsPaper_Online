@@ -1,0 +1,54 @@
+package com.mukzzibba.server;
+
+import java.io.*;
+
+public class StreamCloser {
+	
+	public static void closeInputStream(InputStream input){
+		try {
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void closeOutputStream(OutputStream input){
+		try {
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void closeInputStreamReader(InputStreamReader input){
+		try {
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void closeOutputStreamWriter(OutputStreamWriter input){
+		try {
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void closeObjectOutputStream(ObjectOutputStream input) {
+		try {
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void closeObjectInputStream(ObjectInputStream input) {
+		try {
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

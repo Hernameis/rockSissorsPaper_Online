@@ -1,0 +1,51 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Frame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.activation.DataContentHandler;
+
+import com.mukzzibba.client.controller.DataController;
+import com.mukzzibba.client.panel.*;
+
+public class ClientFrame extends Frame {
+	private static ClientFrame singleTone;
+	DataController mainDataController;
+	MainPanel mainPanel;
+	
+	private ClientFrame() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				singleTone.dispose();
+			}
+		});
+	}
+	
+	public static ClientFrame getInstance() {
+		if (singleTone==null) {			
+			singleTone=new ClientFrame();
+		}
+		return singleTone;
+	}
+	
+	public void frameStart() {
+		mainPanel=new MainPanel();
+		
+		add(mainPanel);
+		setBounds(100,100,500,500);
+		setVisible(true);
+		
+		startDataController();
+	}
+	
+	public void startDataController(){
+		mainDataController=new DataController();
+		mainDataController.run();
+	}
+
+	public DataController getDataController(){
+		return mainDataController;
+	}
+}

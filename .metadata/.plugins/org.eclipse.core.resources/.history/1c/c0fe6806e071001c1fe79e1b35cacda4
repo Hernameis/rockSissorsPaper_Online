@@ -1,0 +1,16 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.GridLayout;
+
+import com.mukzzibba.client.data.PanelData;
+
+public class PanelSetter {
+
+	public static void setMainPanel() {
+		PanelData.mainPanel.setLayout(new GridLayout(1,1));
+	}
+	
+	public static void setStartPanel() {
+		
+	}
+}

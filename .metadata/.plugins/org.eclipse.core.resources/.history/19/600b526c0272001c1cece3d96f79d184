@@ -1,0 +1,13 @@
+package com.mukzzibba.client.button;
+
+import java.awt.Button;
+
+import com.mukzzibba.client.controller.PanelController;
+
+public class ToLobbyButton extends Button{
+	
+	public ToLobbyButton(String name) {
+		super(name);
+		PanelController.mainToRobbyPanel();
+	}
+}

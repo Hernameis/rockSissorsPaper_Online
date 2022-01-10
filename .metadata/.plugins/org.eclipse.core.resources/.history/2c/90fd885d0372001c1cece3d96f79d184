@@ -1,0 +1,18 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.Frame;
+import java.awt.Panel;
+
+import com.mukzzibba.client.button.ExitButton;
+import com.mukzzibba.client.window.ClientFrame;
+
+public class RankingPanel extends Panel{
+	Frame frame;
+	ExitButton exit;
+	
+	public RankingPanel() {
+		frame=ClientFrame.getInstance();
+		
+		exit=new ExitButton("³ª°¡±â");
+	}
+}

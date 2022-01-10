@@ -1,0 +1,18 @@
+package com.mukzzibba.client.controller;
+
+import java.net.Socket;
+
+import com.mukzzibba.client.UserData;
+
+public class DataController extends Thread{
+	Socket sock;
+	
+	@Override
+	public void run() {
+		sock=new Socket(UserData.serverIp, port)
+		while(true){
+			
+			System.out.println(11);
+		}
+	}
+}

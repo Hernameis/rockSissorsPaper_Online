@@ -1,0 +1,11 @@
+package com.mukzzibba.client.button;
+
+import java.awt.Button;
+
+public class LogInButton extends Button{
+	
+	public LogInButton(String name) {
+		super(name);
+		
+	}
+}

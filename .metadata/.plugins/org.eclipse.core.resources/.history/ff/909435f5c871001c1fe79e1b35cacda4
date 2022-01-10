@@ -1,0 +1,9 @@
+package com.mukzzibba.client;
+
+public class UserData {
+	public static String serverIp="127.0.0.1";
+	public static int port=5000;
+	public static String nickname;	
+	public static String password;
+	public static Socket mainSocket;
+}

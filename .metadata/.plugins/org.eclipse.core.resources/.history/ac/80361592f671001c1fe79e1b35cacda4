@@ -1,0 +1,6 @@
+package com.mukzzibba.client.button;
+
+public class RankingButton extends MenuButton{
+	
+	public 
+}

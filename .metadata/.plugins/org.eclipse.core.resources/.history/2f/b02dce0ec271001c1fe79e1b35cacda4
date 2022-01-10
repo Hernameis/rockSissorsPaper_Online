@@ -1,0 +1,25 @@
+package com.mukzzibba.client.button;
+
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import com.mukzzibba.client.action.ExitAction;
+
+
+
+public class ExitButton extends Button implements ActionListener{
+	Frame frameToExit;
+	
+	public ExitButton(String name, Frame frame) {
+		exitFrame=frame;
+		super(name);
+		addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+}

@@ -1,0 +1,14 @@
+package com.mukzzibba.client.panel;
+
+import java.awt.*;
+
+public class MainPanel extends Panel{
+	Frame frame;
+	Panel startPanel;
+	
+	public MainPanel(Frame motherFrame) {
+		frame=motherFrame;
+		startPanel=new StartPanel();
+		add(startPanel);
+	}
+}

@@ -1,0 +1,116 @@
+package com.tanktank.client;
+
+import java.awt.Button;
+import java.awt.Dialog;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.net.UnknownHostException;
+
+public class MainPanel extends Panel{
+	private static final long serialVersionUID = 1L;
+	Frame frame;
+
+	MainPanel(Frame motherFrame){
+		this.setLayout(new GridLayout(1,1));
+		StartPanel startPanel= new StartPanel();
+		this.add(startPanel);
+	}
+	
+	private void enterGameRobby(){
+		
+		Dialog inputServerDialog=new Dialog(this, false);
+		inputServerDialog.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				inputServerDialog.dispose();
+			}
+		});
+		Panel inputServerPanel=new Panel();
+		inputServerDialog.setVisible(true);
+		inputServerDialog.setBounds(100, 100, 300, 200);
+		
+		Label inputIpMsg=new Label("input server ip(default xxx.xxx.xxx.xxx)"); 
+		inputServerPanel.add(inputIpMsg);
+		TextField ip=new TextField(20);
+		inputServerPanel.add(ip);
+		Button confirmIp=new Button("confirm");
+		confirmIp.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ipConfirmed(ip.getText());					
+				System.out.println(ip.getText());
+				inputServerDialog.dispose();
+			}
+		});
+		Button cancelIp=new Button("cancel");
+		cancelIp.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				inputServerDialog.dispose();
+			}
+		});
+		inputServerPanel.add(confirmIp);
+		inputServerPanel.add(cancelIp);
+		
+		inputServerDialog.add(inputServerPanel);			
+		
+		
+		robbyPanel=new Panel();
+		
+		playButtonInRobby=new Button("play");
+		playButtonInRobby.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				enterPlayGame();
+			}
+		});
+		
+		rankingButtonInRobby=new Button("ranking");
+		rankingButtonInRobby.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					viewRankingBoard();
+				} catch (UnknownHostException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		exitButtonInRobby=new Button("exit");
+		exitButtonInRobby.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		
+		
+		robbyPanel.add(playButtonInRobby);
+		robbyPanel.add(rankingButtonInRobby);
+		robbyPanel.add(exitButtonInRobby);
+		
+		// 소켓 열기
+
+
+		
+		mainPanel.removeAll();
+		mainPanel.add(robbyPanel);
+		this.revalidate();
+
+
+		
+	}
+}

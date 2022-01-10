@@ -1,0 +1,18 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.GridLayout;
+import java.awt.Panel;
+
+import com.mukzzibba.client.data.PanelData;
+
+public class MainPanel extends Panel{
+	public static MainPanel me;
+	
+	private MainPanel() {
+		
+	}
+	
+	public statid void MainPanel() {
+		
+	}
+}

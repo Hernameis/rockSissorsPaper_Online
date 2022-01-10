@@ -1,0 +1,10 @@
+package com.mukzzibba.server;
+
+import java.util.stream.Stream;
+
+public class StreamCloser {
+	
+	public static void closeStream(Stream input){
+		input.close();
+	}
+}

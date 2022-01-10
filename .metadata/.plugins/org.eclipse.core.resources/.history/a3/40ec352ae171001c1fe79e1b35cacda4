@@ -1,0 +1,23 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.GridLayout;
+import java.awt.Panel;
+
+import com.mukzzibba.client.data.PanelData;
+
+public class MainPanel extends Panel{
+	public static MainPanel singleTone;
+	
+	private MainPanel() {
+		
+	}
+	
+	public static MainPanel getInstance() {
+		if(singleTone==null) {
+			singleTone=new MainPanel();
+		}
+		return singleTone;
+	}
+	
+	
+}

@@ -1,0 +1,17 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.Frame;
+import java.awt.Panel;
+
+import com.mukzzibba.client.button.ExitButton;
+import com.mukzzibba.client.window.ClientFrame;
+
+public class RobbyPanel extends Panel{
+	Frame frame;
+	
+	public RobbyPanel() {
+		System.out.println("로비패널 만들고");
+		frame=ClientFrame.getInstance();
+		add(new ExitButton("나가기", frame));
+	}
+}

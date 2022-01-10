@@ -1,0 +1,7 @@
+package com.mukzzibba.server;
+
+public class ResultData {
+	String me;
+	String com;
+	String result;
+}

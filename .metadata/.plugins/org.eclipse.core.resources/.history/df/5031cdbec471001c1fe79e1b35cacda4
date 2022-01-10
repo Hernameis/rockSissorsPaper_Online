@@ -1,0 +1,8 @@
+package com.mukzzibba.client.button;
+
+public class ConfirmRegisterButton {
+	
+	public ConfirmRegisterButton() {
+		
+	}
+}

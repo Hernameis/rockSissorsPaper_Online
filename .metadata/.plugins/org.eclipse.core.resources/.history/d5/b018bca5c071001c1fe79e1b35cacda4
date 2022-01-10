@@ -1,0 +1,7 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Dialog;
+
+public class RegisterDialog extends Dialog{
+
+}

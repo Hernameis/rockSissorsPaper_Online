@@ -1,0 +1,13 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.Button;
+
+public class PlayPanel extends Panel{
+	Button me;
+	Button com;
+	
+	public PlayPanel() {
+		me=new Button("³ª");
+		com=new Button("ÄÄ");
+	}
+}

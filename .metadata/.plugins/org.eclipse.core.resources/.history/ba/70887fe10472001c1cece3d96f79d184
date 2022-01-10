@@ -1,0 +1,9 @@
+package com.mukzzibba.client.button;
+
+public class DrawButton extends ButtonWithSendingMsg{
+
+	public DrawButton(String name, String msg) {
+		super(name, msg);
+	}
+	
+}

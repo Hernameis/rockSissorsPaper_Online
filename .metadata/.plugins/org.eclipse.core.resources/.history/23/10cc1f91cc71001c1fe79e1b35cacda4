@@ -1,0 +1,40 @@
+package com.mukzzibba.server;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.List;
+
+public class Server {
+	public static ServerSocket serv;
+	public static List<Socket> socketList;
+	Socket sock;
+	
+	public Server() {
+		try {
+			serv=new ServerSocket(5000);
+			socketList=new List<>;
+			
+			while(true) {
+				try {
+					sock=serv.accept();
+					socketList.add(sock);
+					System.out.println("accepted");
+					break;
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				serv.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+}

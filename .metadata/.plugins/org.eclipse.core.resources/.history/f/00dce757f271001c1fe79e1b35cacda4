@@ -1,0 +1,8 @@
+package com.mukzzibba.client.button;
+
+import java.awt.Button;
+
+
+abstract public class MenuButton extends Button{
+	
+}

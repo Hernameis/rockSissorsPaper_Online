@@ -1,0 +1,74 @@
+package com.mukzzibba.server;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+
+public class StreamOpener {
+
+	InputStream is;
+	OutputStream os;
+	InputStreamReader isr;
+	OutputStreamWriter osw;
+	BufferedReader br;
+	ObjectOutputStream oos;
+//	ObjectInputStream ois;
+	
+	public InputStream OpeninputStream(Socket sock){
+		try {
+			is=sock.getInputStream();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return is;
+		
+	}
+	
+	public OutputStream OpenoutputStream(Socket sock){
+		try {
+			os=sock.getOutputStream();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return os;
+	}
+	
+	public InputStreamReader OpeninputStreamReader(InputStream isInput) {
+		isr=new InputStreamReader(isInput);
+		return isr;
+	}
+	
+	public OutputStreamWriter OpenoutputStreamWriter(OutputStream osInput) {
+		osw=new OutputStreamWriter(osInput);
+		return osw;
+	}
+	
+	public ObjectInputStream OpenObjectInputStream(InputStream isInput){
+		ObjectInputStream ois=null;
+		try {
+			ois=new ObjectInputStream(isInput);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return ois;
+	}
+	
+	public ObjectOutputStream OpenObjectOutputStream(OutputStream osOutput){
+		try {
+			oos=new ObjectOutputStream(osOutput);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return oos;
+	}
+}

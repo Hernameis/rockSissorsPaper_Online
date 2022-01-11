@@ -1,0 +1,11 @@
+package com.mukzzibba.server;
+
+import java.io.Serializable;
+
+public class ResultData implements Serializable{
+	int userInt;
+	int comInt;
+	String userStr;
+	String comStr;
+	String result;
+}

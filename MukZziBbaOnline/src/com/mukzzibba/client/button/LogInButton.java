@@ -6,10 +6,10 @@ import java.awt.event.ActionListener;
 
 import com.mukzzibba.client.socketNetwork.Login;
 
-public class LogInButton extends ButtonWithSendingMsg{
+public class LogInButton extends Button{
 	
 	public LogInButton(String name) {
-		super(name, "logi");
+		setLabel(name);
 		
 		addActionListener(new ActionListener() {
 			@Override

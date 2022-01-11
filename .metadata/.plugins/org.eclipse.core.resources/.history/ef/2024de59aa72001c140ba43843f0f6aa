@@ -1,0 +1,72 @@
+package com.mukzzibba.client.socketNetwork;
+
+import java.io.IOException;
+
+import com.mukzzibba.server.IsBool;
+import com.mukzzibba.server.ResultData;
+import com.mukzzibba.client.data.LoginData;
+import com.mukzzibba.client.data.UserData;
+import com.mukzzibba.server.ResultData;
+
+public class SignalToServer {
+	
+	public static void sendMsg(String msg) {
+		OpenAndCloseSocket.OpenSocket();
+		StreamOpener.openOutStream();
+		StreamOpener.openInStream();
+		StreamOpener.openObjectInputStream();
+		
+		try {
+			UserData.os.write(msg.getBytes());
+			UserData.os.flush();
+			if (msg.equals("logi")) {
+				boolean check=false;
+				check=checkIsUser();
+			} else if(IsBool.isGame(msg)){
+				getResultData();
+				
+			} 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		StreamCloser.closeObjectInputStream();
+		StreamCloser.closeInStream();
+		StreamCloser.closeOutStream();
+		OpenAndCloseSocket.CloseSocket();
+	}
+	
+	public static void getResultData(){
+		try {
+			UserData.result=(ResultData)UserData.ois.readObject();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static boolean checkIsUser() {
+		StreamOpener.openObjectOutputStream();
+		try {
+			UserData.oos.writeObject(UserData.login);
+			UserData.oos.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		StreamCloser.closeObjectOutputStream();
+		
+		
+		try {
+			UserData.isr.read();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return true;
+	}
+	
+	public static void setLogin(){
+		UserData.userChecked=true;
+	}
+}

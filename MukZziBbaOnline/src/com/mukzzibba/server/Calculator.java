@@ -21,7 +21,7 @@ public class Calculator {
 	private static int getRanNum(){
 		Random ran=new Random();
 		
-		int comInt=ran.nextInt()*3;
+		int comInt=ran.nextInt(3);
 		return comInt;
 	}
 	

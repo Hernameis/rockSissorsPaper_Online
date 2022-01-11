@@ -1,0 +1,11 @@
+package com.mukzzibba.server.userDb;
+
+import java.util.List;
+import java.util.Set;
+
+public class UserDB {
+	
+	public static List<Set<String>, String> getRank(){
+		return new List<>();
+	}
+}

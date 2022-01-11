@@ -1,6 +1,0 @@
-package com.mukzzibba.client;
-
-public class UserData {
-	public String nickname;
-	public String ip;
-}

@@ -54,6 +54,7 @@ public class StreamOpener {
 	}
 	
 	public ObjectInputStream OpenObjectInputStream(InputStream isInput){
+	
 		try {
 			ois=new ObjectInputStream(isInput);
 		} catch (IOException e) {

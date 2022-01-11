@@ -1,0 +1,40 @@
+package com.mukzzibba.server.userDb;
+
+import com.mukzzibba.client.data.LoginData;
+import com.mukzzibba.client.socketNetwork.StreamCloser;
+import com.mukzzibba.client.socketNetwork.StreamOpener;
+
+public class UserChecker {
+	
+	
+	public static void CheckUserData() {
+		LoginData input;
+		boolean isName;
+		boolean isPass;
+		
+		input=UserDataRead();
+		isName=checkNickname();
+		isPass=checkPassword();
+		UserDataWrite();
+	}
+	
+	public static boolean checkNickname(){
+		return true;
+	}
+	
+	public static boolean checkPassword(){
+		return true;
+	}
+	
+	public static LoginData UserDataRead() {
+		
+		StreamOpener.openObjectInputStream();
+		
+		StreamCloser.closeObjectInputStream();
+		return 
+	}
+	
+	public static void UserDataWrite() {
+		
+	}
+}

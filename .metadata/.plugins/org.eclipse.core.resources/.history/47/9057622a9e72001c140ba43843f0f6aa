@@ -1,0 +1,5 @@
+package com.mukzzibba.client.data;
+
+public class LoginData {
+
+}

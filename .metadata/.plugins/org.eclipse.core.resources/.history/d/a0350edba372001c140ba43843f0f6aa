@@ -1,0 +1,48 @@
+package com.mukzzibba.server.userDb;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+import com.mukzzibba.client.data.LoginData;
+import com.mukzzibba.server.*;
+
+public class UserChecker {
+	
+	
+	public static void CheckUserData(ObjectInputStream ois) {
+		LoginData input;
+		boolean isName;
+		boolean isPass;
+		
+		input=UserDataRead(ois);
+		isName=checkNickname(input.nickname.getText());
+		isPass=checkPassword(input.password.getText());
+		UserDataWrite();
+	}
+	
+	public static boolean isUser(String nickName){
+		System.out.println();
+		return true;
+	}
+	
+	public static boolean checkPassword(String password){
+		return true;
+	}
+	
+	public static LoginData UserDataRead(ObjectInputStream ois) {
+		LoginData input=null;
+		
+		try {
+			input = (LoginData)ois.readObject();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return input;
+	}
+	
+	public static void UserDataWrite() {
+		
+	}
+}

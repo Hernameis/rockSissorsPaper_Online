@@ -25,7 +25,6 @@ public class ClientFrame extends Frame {
 			
 			@Override
 			public void windowClosed(WindowEvent e) {
-				SignalToServer.send("exit");
 				UserData.end=true;
 				try {
 					UserData.mainSocket.close();

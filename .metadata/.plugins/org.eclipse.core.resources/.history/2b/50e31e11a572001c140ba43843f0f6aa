@@ -1,0 +1,8 @@
+package com.mukzzibba.client.data;
+
+import java.awt.TextField;
+
+public class LoginData {
+	public TextField nickname;	
+	public TextField password;
+}

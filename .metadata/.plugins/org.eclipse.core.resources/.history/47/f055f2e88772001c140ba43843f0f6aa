@@ -1,0 +1,16 @@
+package com.mukzzibba.server;
+
+import java.io.Serializable;
+
+public class ResultData implements Serializable{
+	private static final long serialVersionUID = -8479852307103851503L;
+	
+	public int userInt;
+	public int comInt;
+	public String userStr;
+	public String comStr;
+	public String result;
+	
+	public int wins;
+	public int loses;
+}

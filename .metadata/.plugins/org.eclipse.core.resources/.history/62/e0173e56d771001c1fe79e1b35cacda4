@@ -1,7 +1,0 @@
-package com.mukzzibba.client.action;
-
-import java.awt.event.ActionListener;
-
-public class LoginAction implements ActionListener{
-	
-}

@@ -1,0 +1,39 @@
+package com.mukzzibba.server.userDb;
+
+import java.io.ObjectInputStream;
+
+import com.mukzzibba.client.data.LoginData;
+import com.mukzzibba.server.*;
+
+public class UserChecker {
+	
+	
+	public static void CheckUserData() {
+		LoginData input;
+		boolean isName;
+		boolean isPass;
+		
+		input=UserDataRead();
+		isName=checkNickname();
+		isPass=checkPassword();
+		UserDataWrite();
+	}
+	
+	public static boolean checkNickname(){
+		return true;
+	}
+	
+	public static boolean checkPassword(){
+		return true;
+	}
+	
+	public static LoginData UserDataRead(ObjectInputStream ois) {
+		LoginData input= (LoginData)ois.readObject();
+		
+		return input;
+	}
+	
+	public static void UserDataWrite() {
+		
+	}
+}

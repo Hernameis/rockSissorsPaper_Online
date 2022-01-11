@@ -11,28 +11,31 @@ import javax.xml.crypto.Data;
 import com.mukzzibba.client.button.ExitButton;
 import com.mukzzibba.client.button.LogInButton;
 import com.mukzzibba.client.button.RegisterButton;
+import com.mukzzibba.client.data.LoginData;
 import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.client.window.ClientFrame;
 
 public class StartPanel extends Panel{
 	Frame frame;
-	TextField nickname;
-	TextField password;
 	Button registerButton;
 	Button loginButton;
 	Button exitButton;
+	LoginData loginData;
 	
 	public StartPanel() {
 		frame=ClientFrame.getInstance();
 		
-		nickname=new TextField("닉네임");
-		password=new TextField("비밀 번호");
+		UserData.login=new LoginData();
+		loginData=UserData.login;
+		
+		loginData.nickname=new TextField("닉네임");
+		loginData.password=new TextField("비밀 번호");
 		registerButton=new RegisterButton("회원 가입");
 		loginButton=new LogInButton("로그인");
 		exitButton=new ExitButton("나가기", frame);
 		
-		add(nickname);
-		add(password);
+		add(loginData.nickname);
+		add(loginData.password);
 		add(loginButton);
 		add(registerButton);
 		add(exitButton);

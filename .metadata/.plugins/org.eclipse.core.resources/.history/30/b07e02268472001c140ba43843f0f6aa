@@ -1,0 +1,13 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Dialog;
+
+import com.mukzzibba.client.button.ExitButton;
+
+public class GameResultDialog extends Dialog{
+	
+	public GameResultDialog() {
+		add(new ExitButton("´Ý±â", this));
+		
+	}
+}

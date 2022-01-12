@@ -1,0 +1,10 @@
+package com.mukzzibba.server.userDb;
+
+import java.net.Socket;
+
+public class DataController {
+	
+	public static void dispachCommand(String msg, Socket sock) {
+		
+	}
+}

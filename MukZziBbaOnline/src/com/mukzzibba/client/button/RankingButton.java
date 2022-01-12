@@ -3,7 +3,7 @@ package com.mukzzibba.client.button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.mukzzibba.client.controller.PanelController;
+import com.mukzzibba.client.Panel.PanelController;
 
 public class RankingButton extends ButtonWithSendingMsg{
 	

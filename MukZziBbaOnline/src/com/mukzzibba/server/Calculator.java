@@ -1,12 +1,23 @@
 package com.mukzzibba.server;
 
+import java.net.Socket;
 import java.util.Random;
+
+
 
 public class Calculator {
 	
 	private Calculator() {}
 	
-	public static ResultData getResult(String msg){
+	public static void sendResult(String msg, Socket sock){
+		ResultData res=null;
+		
+		res=getResultData(msg);
+		SendDataToClient.resultData(res,sock);
+		// 데이터 저장
+	}
+	
+	private static ResultData getResultData(String msg){
 		ResultData res=new ResultData();
 		
 		res.userInt=getIntFromStr(msg);
@@ -28,9 +39,9 @@ public class Calculator {
 	private static int getIntFromStr(String msg){
 		int userInt;
 		
-		if(msg.equals("rock")){
+		if(msg.equals("scis")){
 			userInt=0;
-		} else if(msg.equals("scis")){
+		} else if(msg.equals("rock")){
 			userInt=1;
 		} else {
 			userInt=2;
@@ -40,9 +51,9 @@ public class Calculator {
 	
 	private static String getStrFromInt(int n){
 		if(n==0){
-			return new String("rock");
-		} else if (n==1){
 			return new String("scis");
+		} else if (n==1){
+			return new String("rock");
 		} else {
 			return new String("pape");
 		}

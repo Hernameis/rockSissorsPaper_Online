@@ -1,0 +1,55 @@
+package com.mukzzibba.client.socketNetwork;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+
+import com.mukzzibba.client.data.UserData;
+
+public class ReceiveDataFromServer {
+
+	public static void stringData(){
+		String msg=null;
+		
+		InputStreamReader isr=null;
+		BufferedReader br=null;
+		isr=new InputStreamReader(UserData.is);
+		br=new BufferedReader(isr);
+		
+		try {
+			msg=br.readLine();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+				isr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("°á°ú : "+msg);
+	}
+	
+	public static void userData(){
+		
+	}
+	
+	public static void resultData(){
+		InputStream is=null;
+		ObjectInputStream ois=null;
+		try {
+			is = UserData.mainSocket.getInputStream();
+			ois=new ObjectInputStream(is);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void rankingData(){
+		
+	}
+}

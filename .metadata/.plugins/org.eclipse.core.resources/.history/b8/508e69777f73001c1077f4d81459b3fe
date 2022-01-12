@@ -1,0 +1,29 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Dialog;
+import java.awt.Label;
+import java.awt.Panel;
+
+import com.mukzzibba.client.button.ExitButton;
+import com.mukzzibba.client.data.UserData;
+import com.mukzzibba.server.ResultData;
+
+public class GameResultDialog extends Dialog{
+	Panel p;
+	Label resultLabel;
+	ResultData user;
+	
+	public GameResultDialog() {
+		super(ClientFrame.getInstance(),true);
+		user=UserData.result;
+		p=new Panel();
+		resultLabel=new Label();
+		resultLabel.setText(user.userStr+" "+user.comStr+" "+user.result);
+		
+		p.add(resultLabel);
+		p.add(new ExitButton("´Ý±â", this));
+		add(p);
+		setBounds(100,100,200,200);
+		setVisible(true);
+	}
+}

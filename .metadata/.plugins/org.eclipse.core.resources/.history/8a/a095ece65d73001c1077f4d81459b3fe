@@ -1,0 +1,17 @@
+package com.mukzzibba.server.userDb;
+
+public class UserInfo {
+	String nickname;
+	String password;
+	int win;
+	int lose;
+	double winRatio;
+	int rank;
+	
+	public UserInfo(){
+		win=0;
+		lose=0;
+		winRatio=0.0;
+		rank=-1;
+	}
+}

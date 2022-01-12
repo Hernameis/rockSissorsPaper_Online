@@ -1,0 +1,26 @@
+package com.mukzzibba.server;
+
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+import com.mukzzibba.server.userDb.UserInfo;
+
+public class SendDataToClient {
+	
+	public static void resultData(ResultData data, Socket sock){
+		ObjectOutputStream oos=null;
+		
+		try {
+			oos=new ObjectOutputStream(sock.getOutputStream());
+			oos.writeObject(data);
+			oos.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void userInfoData(Socket sock, int res, String name){
+		UserInfo user= a;
+	}
+}

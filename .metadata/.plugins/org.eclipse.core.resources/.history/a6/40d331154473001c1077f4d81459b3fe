@@ -1,0 +1,82 @@
+package com.mukzzibba.server;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+import java.util.Arrays;
+import java.util.Scanner;
+
+import com.mukzzibba.server.ResultData;
+import com.mukzzibba.server.userDb.UserChecker;
+import com.mukzzibba.server.userDb.UserDB;
+import com.mukzzibba.util.IsBool;
+
+public class ClientListener extends Thread{
+	Socket sock;
+	String msg;
+	final int msgNum;
+	char[] charArr;
+	int isNext;
+	
+	public ClientListener(Socket sock) {
+		this.sock=sock;
+		msgNum=4;
+		charArr=new char[msgNum];
+		run();
+	}
+	
+	@Override
+	public void run() {
+		Scanner sc=new Scanner(System.in);
+		// 나중에서 클라이언트에서 받아오는 것으로 바꾸기
+		msg=msgFromClient(sock);
+		
+//		requestToServer(sock, msg);
+		if(msg.equals("logi")){
+//			Checker.acceptLogin();
+		} else if (msg.equals("dupC")) {
+//			Checker.checkNickname();
+		} else if (msg.equals("regi")) {
+//			Register.registID();
+		} else if (IsBool.isGame(msg)) {
+//			Calculator.getResult(msg);
+		} else if (msg.equals("rank")) {
+			
+		} else {
+			System.out.println("wrong input : "+msg);
+		}
+		
+//		Closer.closeStream();
+		Closer.closeSocket(sock);
+	}
+	
+	private String msgFromClient(Socket sock) {
+		InputStream is=null;
+		String msg=new String("");
+		int num=-1;
+			
+		try {
+			is=sock.getInputStream();
+			num=is.read();
+			if(num!=-1){				
+				msg+=(char)num;
+			}
+			for(int i=0; i<msgNum-1; i++){
+				num=is.read();
+				msg+=(char)num;
+			}
+			System.out.println(msg);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+
+}

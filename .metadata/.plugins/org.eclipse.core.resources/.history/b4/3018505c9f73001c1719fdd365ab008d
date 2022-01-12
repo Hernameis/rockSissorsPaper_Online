@@ -1,0 +1,76 @@
+package com.mukzzibba.server;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+import java.util.Arrays;
+import java.util.Scanner;
+
+import com.mukzzibba.server.ResultData;
+import com.mukzzibba.server.userDb.DataController;
+import com.mukzzibba.server.userDb.UserChecker;
+import com.mukzzibba.server.userDb.UserDB;
+import com.mukzzibba.util.IsBool;
+
+public class ClientListener extends Thread{
+	Socket sock;
+	String msg;
+	final int msgNum;
+	char[] charArr;
+	int isNext;
+	
+	public ClientListener(Socket sock) {
+		this.sock=sock;
+		msgNum=4;
+		charArr=new char[msgNum];
+	}
+	
+	@Override
+	public void run() {
+		msg=msgFromClient(sock);
+		DataController.SendResultToClient(msg, sock);
+		try {
+			System.out.println("닫히기 직전 "+sock.getOutputStream());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Closer.closeSocket(sock);
+	}
+	
+	private String msgFromClient(Socket sock) {
+		try {
+			System.out.println("처음열리고 "+sock.getOutputStream());
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		InputStream is=null;
+		String msg=new String("");
+		int num=-1;
+			
+		try {
+			is=sock.getInputStream();
+			num=is.read();
+			if(num!=-1){				
+				msg+=(char)num;
+			}
+			for(int i=0; i<msgNum-1; i++){
+				num=is.read();
+				msg+=(char)num;
+			}
+			System.out.println(msg);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return msg;
+	}
+	
+
+}

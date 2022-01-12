@@ -1,0 +1,8 @@
+package com.mukzzibba.server.userDb;
+
+public class DataController {
+	
+	public static void dispachCommand(String msg) {
+		
+	}
+}

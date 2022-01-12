@@ -1,0 +1,23 @@
+package com.mukzzibba.server.userDb;
+
+import java.net.Socket;
+
+import com.mukzzibba.server.Calculator;
+import com.mukzzibba.util.IsBool;
+
+public class DataController {
+	
+	public static void SendResultToClient(String msg, Socket sock) {
+		if(Checker.isCheckerNeed(msg)){
+			Checker.acceptMsg(msg, sock);
+		} else if (msg.equals("regi")) {
+			Register.registID(sock);
+		} else if (IsBool.isGame(msg)) {
+			Calculator.getResult(msg);
+		} else if (msg.equals("rank")) {
+			RankingBoard.getRank();
+		} else {
+			System.out.println("wrong input : "+msg);
+		}
+	}
+}

@@ -2,7 +2,7 @@ package com.mukzzibba.client.data;
 
 import java.awt.Panel;
 
-import com.mukzzibba.client.controller.*;
+import com.mukzzibba.client.Panel.*;
 
 public class PanelData {
 	public static MainPanel mainPanel;

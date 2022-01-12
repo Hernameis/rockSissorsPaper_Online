@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.activation.DataContentHandler;
 
-import com.mukzzibba.client.controller.PanelController;
+import com.mukzzibba.client.Panel.PanelController;
 import com.mukzzibba.client.data.PanelData;
 import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.client.socketNetwork.SignalToServer;

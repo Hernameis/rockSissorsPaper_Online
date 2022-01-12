@@ -1,0 +1,14 @@
+package com.mukzzibba.server;
+
+import java.net.Socket;
+
+import com.mukzzibba.client.data.LoginData;
+
+public class ReceiveDataFromClient {
+	
+	public static LoginData loginData(Socket sock){
+		InputStream is=sock.getI
+		LoginData res=null;
+		return res;
+	}
+}

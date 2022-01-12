@@ -4,11 +4,16 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 
-import com.mukzzibba.server.IsBool;
+import com.mukzzibba.server.Calculator;
 import com.mukzzibba.server.ResultData;
+import com.mukzzibba.client.data.ClientSetter;
 import com.mukzzibba.client.data.LoginData;
 import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.server.ResultData;
+import com.mukzzibba.server.userDb.Checker;
+import com.mukzzibba.server.userDb.RankingBoard;
+import com.mukzzibba.server.userDb.Register;
+import com.mukzzibba.util.IsBool;
 
 public class SignalToServer {
 	
@@ -24,11 +29,27 @@ public class SignalToServer {
 				e.printStackTrace();
 			}
 			
-
-			if (msg.equals("logi")) {
-//				sendLoginInfo();
-			} else if(IsBool.isGame(msg)){
-//				getResultData();				
+			if(msg.equals("logi")){
+				SendDataToServer.loginData();
+				UserData.userChecked=ReceiveDataFromServer.intData();
+				if(UserData.userChecked==0){
+					ReceiveDataFromServer.userInfoData();					
+				}
+			} else if(msg.equals("dupC")) {
+				SendDataToServer.registData();
+				ReceiveDataFromServer.stringData();
+			} else if (msg.equals("regi")) {
+				SendDataToServer.registData();
+				ReceiveDataFromServer.stringData();
+			} else if (msg.equals("rank")) {
+				ReceiveDataFromServer.rankingData();
+			} else if (IsBool.isGame(msg)) {
+				SendDataToServer.loginData();
+				ResultData res=null;
+				res=ReceiveDataFromServer.resultData();
+				ClientSetter.setResultData(res);
+			} else {
+				System.out.println("입력이 잘못됨");
 			}
 		
 		StreamCloser.closeInStream();
@@ -67,7 +88,7 @@ public class SignalToServer {
 	
 
 	
-	public static void setLogin(){
-		UserData.userChecked=true;
+	public static void setLogin(int isLogin){
+		UserData.userChecked=isLogin;
 	}
 }

@@ -1,8 +1,0 @@
-package com.mukzzibba.server.userDb;
-
-public class UserDB {
-
-	public list<E> getRank(){
-		
-	}
-}

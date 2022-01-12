@@ -1,0 +1,9 @@
+package com.mukzzibba.client.data;
+
+import java.awt.TextField;
+import java.io.Serializable;
+
+public class RegistData implements Serializable{
+	public static TextField nickname;
+	public static TextField password;
+}

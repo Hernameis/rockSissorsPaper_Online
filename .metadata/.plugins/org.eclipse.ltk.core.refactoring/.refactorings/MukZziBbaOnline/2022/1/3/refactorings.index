@@ -51,3 +51,8 @@
 1641815640320	Rename compilation unit 'isBool.java'
 1641865005899	Delete element
 1641870683256	Rename type 'UserVerification'
+1641946466623	Rename type 'Server'
+1641946811261	Move compilation unit
+1641952697675	Rename package 'com.mukzzibba.client.controller'
+1641953030860	Rename type 'ToLobbyButton'
+1641977258794	Delete element

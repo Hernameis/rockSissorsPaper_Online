@@ -10,74 +10,55 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.Arrays;
+import java.util.Scanner;
 
 import com.mukzzibba.server.ResultData;
+import com.mukzzibba.server.userDb.DataController;
 import com.mukzzibba.server.userDb.UserChecker;
 import com.mukzzibba.server.userDb.UserDB;
+import com.mukzzibba.util.IsBool;
 
 public class ClientListener extends Thread{
 	Socket sock;
 	String msg;
+	final int msgNum;
 	char[] charArr;
 	int isNext;
 	
-	InputStream is;
-	InputStreamReader isr;
-	ObjectInputStream ois;
-	
-	OutputStream os;
-	OutputStreamWriter osw;
-	ObjectOutputStream oos;
-	
 	public ClientListener(Socket sock) {
 		this.sock=sock;
-		charArr=new char[4];
-		run();
+		msgNum=4;
+		charArr=new char[msgNum];
 	}
 	
 	@Override
 	public void run() {
-		msg="";
+		msg=msgFromClient(sock);
+		DataController.SendResultToClient(msg, sock);
+		Closer.closeSocket(sock);
+	}
+	
+	private String msgFromClient(Socket sock) {
+		InputStream is=null;
+		String msg=new String("");
+		int num=-1;
+			
 		try {
 			is=sock.getInputStream();
-		} catch (IOException e2) {
-			e2.printStackTrace();
-		}				
-		try {
-			while(true){
-				int isNext=is.read();
-				if (isNext!=-1){
-					msg+=(char)isNext;
-					break;
-				}
+			num=is.read();
+			if(num!=-1){				
+				msg+=(char)num;
 			}
-			for(int i=0; i<3; i++){
-				isNext=is.read();
-				msg+=(char)isNext;
+			for(int i=0; i<msgNum-1; i++){
+				num=is.read();
+				msg+=(char)num;
 			}
-			System.out.println("msg "+msg);
-			
-			if(msg.equals("logi")){
-//				ois=new ObjectInputStream(is);
-//				UserChecker.CheckUserData(ois);
-//				ois.close();
-			} if(IsBool.isGame(msg)){
-//				oos.writeObject(Calculator.getResult(msg));
-//				oos.flush();
-			} else if(msg.equals("rank")) {
-//				oos.writeObject(UserDB.getRank());
-//				oos.flush();
-			}
-			
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} finally {
-			try {
-				is.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			System.out.println(msg);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
+		return msg;
 	}
+	
+
 }

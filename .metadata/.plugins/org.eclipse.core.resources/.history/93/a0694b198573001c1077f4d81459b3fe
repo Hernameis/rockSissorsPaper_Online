@@ -1,0 +1,11 @@
+package com.mukzzibba.server;
+
+import com.mukzzibba.client.data.LoginData;
+
+public class ReceiveDataFromClient {
+	
+	public static LoginData loginData(){
+		LoginData res=null;
+		return res;
+	}
+}

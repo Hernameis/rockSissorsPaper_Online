@@ -1,0 +1,22 @@
+package com.mukzzibba.server.userDb;
+
+import java.net.Socket;
+
+import com.mukzzibba.util.IsBool;
+
+public class DataController {
+	
+	public static void dispachCommand(String msg, Socket sock) {
+		if(msg.equals("logi") || msg.equals("dupC")){
+			
+		} else if (msg.equals("regi")) {
+//			Register.registID();
+		} else if (IsBool.isGame(msg)) {
+//			Calculator.getResult(msg);
+		} else if (msg.equals("rank")) {
+			
+		} else {
+			System.out.println("wrong input : "+msg);
+		}
+	}
+}

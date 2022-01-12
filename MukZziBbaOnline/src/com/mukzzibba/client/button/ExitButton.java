@@ -5,11 +5,11 @@ import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ExitButton extends ButtonWithSendingMsg implements ActionListener{
+public class ExitButton extends Button implements ActionListener{
 	Window windowToExit;
 	
 	public ExitButton(String name, Window window) {
-		super(name, "exit");
+		super(name);
 		windowToExit=window;
 		addActionListener(this);
 	}

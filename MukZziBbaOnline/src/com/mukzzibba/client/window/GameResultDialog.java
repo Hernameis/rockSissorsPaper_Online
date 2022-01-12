@@ -15,9 +15,9 @@ public class GameResultDialog extends Dialog{
 	
 	public GameResultDialog() {
 		super(ClientFrame.getInstance(),true);
-		user=UserData.result;
 		p=new Panel();
 		resultLabel=new Label();
+		user=UserData.result;
 		resultLabel.setText(user.userStr+" "+user.comStr+" "+user.result);
 		
 		p.add(resultLabel);

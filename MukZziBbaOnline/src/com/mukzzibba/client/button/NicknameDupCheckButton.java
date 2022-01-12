@@ -2,11 +2,20 @@ package com.mukzzibba.client.button;
 
 import java.awt.Button;
 import java.awt.Dialog;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import com.mukzzibba.client.socketNetwork.SignalToServer;
 
 public class NicknameDupCheckButton extends Button {
 
 	public NicknameDupCheckButton() {
-		super("중복 확인");
+		super("중복 확인");		addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SignalToServer.sendMsg("dupC");
+			}
+		});
 	}
 	
 }

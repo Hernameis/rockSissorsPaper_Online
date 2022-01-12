@@ -1,0 +1,70 @@
+package com.mukzzibba.server.userDb;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+
+import com.mukzzibba.client.data.RegistData;
+
+public class Register {
+	
+	public static void registID(Socket sock){
+		ObjectInputStream ois=null;
+		String name=null;
+		String pass=null;
+		
+		try {
+			ois=new ObjectInputStream(sock.getInputStream());
+			RegistData a=(RegistData)ois.readObject();
+			name=a.nickname.getText();
+			pass=a.password.getText();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+//			try {
+//				ois.close();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+		}		
+		registUserToDB(name, pass, sock);
+	}
+	
+	public static void registUserToDB(String name, String pass, Socket sock){
+		String msg="회원가입 실패";
+		
+		NicknameDB db=new NicknameDB();
+		
+		if(db.isNameInPool(name)){
+			msg="회원가입 성공";
+		}
+		sendMsgToClient(msg, sock);	
+	}
+	
+	public static void sendMsgToClient(String msg, Socket sock){
+		OutputStreamWriter osr=null;
+		BufferedWriter br=null;
+		
+		try {
+			osr=new OutputStreamWriter(sock.getOutputStream());
+			br=new BufferedWriter(osr);
+			
+			br.write(msg);
+			br.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+				osr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println(msg+" (전송됨)");
+	}
+}

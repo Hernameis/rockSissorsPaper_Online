@@ -1,0 +1,37 @@
+package com.mukzzibba.client.Panel;
+
+import java.awt.Frame;
+import java.awt.Panel;
+
+import com.mukzzibba.client.button.ExitButton;
+import com.mukzzibba.client.button.PlayButton;
+import com.mukzzibba.client.button.RankingButton;
+import com.mukzzibba.client.button.ToStartPanelButton;
+import com.mukzzibba.client.window.ClientFrame;
+
+public class LobbyPanel extends Panel{
+	Frame frame;
+	PlayButton play;
+	RankingButton rankboard;
+	ToStartPanelButton toStart;
+	ExitButton exit;
+	Panel infoPanel;
+	Label infoLabel;
+	
+	public LobbyPanel() {
+		frame=ClientFrame.getInstance();
+		
+		info=new Panel();
+		infoLbael=new Label();
+		
+		play=new PlayButton("플레이");
+		rankboard=new RankingButton("랭킹");
+		toStart=new ToStartPanelButton("뒤로");
+		exit=new ExitButton("나가기", frame);
+		
+		add(play);             
+		add(rankboard);
+		add(toStart);
+		add(exit);
+	}
+}

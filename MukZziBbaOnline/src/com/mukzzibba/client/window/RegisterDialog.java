@@ -8,11 +8,11 @@ import java.awt.TextField;
 import com.mukzzibba.client.button.ConfirmInRegisterButton;
 import com.mukzzibba.client.button.ExitButton;
 import com.mukzzibba.client.button.NicknameDupCheckButton;
+import com.mukzzibba.client.data.RegistData;
+import com.mukzzibba.client.data.UserData;
 
 public class RegisterDialog extends Dialog{
 	Panel p;
-	TextField nickname;
-	TextField password;
 	NicknameDupCheckButton dup;
 	ConfirmInRegisterButton confirm;
 	ExitButton exit;
@@ -22,15 +22,17 @@ public class RegisterDialog extends Dialog{
 		p=new Panel();
 //		p.setLayout(null);
 		
-		nickname=new TextField("닉네임");
-		password=new TextField("비밀번호");
+		UserData.regist=new RegistData();
+		UserData.regist.nickname=new TextField("닉네임");
+		UserData.regist.password=new TextField("비밀번호");
+		
 		dup=new NicknameDupCheckButton();
-		confirm=new ConfirmInRegisterButton("확인",this);
+		confirm=new ConfirmInRegisterButton("회원 가입",this);
 		exit=new ExitButton("닫기", this);
 		
-		p.add(nickname);
+		p.add(UserData.regist.nickname);
 		p.add(dup);
-		p.add(password);
+		p.add(UserData.regist.password);
 		p.add(confirm);
 		p.add(exit);
 		add(p);

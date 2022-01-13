@@ -12,6 +12,8 @@ import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.client.window.ClientFrame;
 
 public class LobbyPanel extends Panel{
+	private static final long serialVersionUID = -2473225825755910282L;
+	
 	Frame frame;
 	PlayButton play;
 	RankingButton rankboard;
@@ -25,7 +27,7 @@ public class LobbyPanel extends Panel{
 		
 		infoPanel=new Panel();
 		infoLabel=new Label();
-		infoLabel.setText(UserData.me.nickname+" "+UserData.me.win+" "+UserData.me.lose);
+		infoLabel.setText(UserData.me.nickname+" 점수"+UserData.me.score+" "+"게임 횟수 :"+UserData.me.playNum+" "+UserData.me.win+" "+UserData.me.lose+" "+UserData.me.winRatio);
 		infoPanel.add(infoLabel);
 		
 		play=new PlayButton("플레이");

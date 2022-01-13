@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 import com.mukzzibba.client.Panel.PanelController;
 
 public class PlayButton extends Button{
-	
+	private static final long serialVersionUID = 4890041370110902987L;
+
 	public PlayButton(String name) {
 		super(name);
 		addActionListener(new ActionListener() {

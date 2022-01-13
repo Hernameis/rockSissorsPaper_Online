@@ -1,0 +1,31 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Button;
+import java.awt.Dialog;
+import java.awt.Label;
+import java.awt.Window;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+import com.mukzzibba.client.button.ExitButton;
+
+public class ErrorDialog extends Dialog{
+	private static final long serialVersionUID = -5772609390448702755L;
+	
+	Label la;
+	ExitButton exit;
+	
+	public ErrorDialog(String msg, Window window) {
+		super(window);
+		JLabel msgLabel=new JLabel(msg);
+		exit=new ExitButton("»Æ ¿Œ", this);
+		add(msgLabel);
+		
+		setBounds(100,100,100,100);
+		setVisible(true);
+		
+		
+	}
+	
+}

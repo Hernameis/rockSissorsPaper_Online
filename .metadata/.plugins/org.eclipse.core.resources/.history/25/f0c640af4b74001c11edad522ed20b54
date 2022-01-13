@@ -1,0 +1,49 @@
+package com.mukzzibba.client.Panel;
+
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.TextField;
+
+import javax.activation.DataContentHandler;
+import javax.swing.JLabel;
+import javax.xml.crypto.Data;
+
+import com.mukzzibba.client.button.ExitButton;
+import com.mukzzibba.client.button.LogInButton;
+import com.mukzzibba.client.button.RegisterButton;
+import com.mukzzibba.client.data.LoginData;
+import com.mukzzibba.client.data.UserData;
+import com.mukzzibba.client.window.ClientFrame;
+
+public class StartPanel extends Panel{
+	Frame frame;
+	Button registerButton;
+	Button loginButton;
+	Button exitButton;
+	LoginData loginData;
+	
+	public StartPanel() {
+		frame=ClientFrame.getInstance();
+		
+		UserData.login=new LoginData();
+		loginData=UserData.login;
+		
+		add(new JLabel("닉네임"));
+		loginData.nickname=new TextField();
+		add(loginData.nickname);
+		add(new Label("비밀 번호"));
+		loginData.password=new TextField();
+		add(loginData.password);
+		registerButton=new RegisterButton("회원 가입");
+		add(loginButton);
+		loginButton=new LogInButton("로그인");
+		add(registerButton);
+		exitButton=new ExitButton("나가기", frame);
+		add(exitButton);
+		
+		
+	}
+	
+}

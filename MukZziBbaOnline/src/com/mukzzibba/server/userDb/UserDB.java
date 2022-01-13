@@ -7,17 +7,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.Map;
 import java.util.TreeMap;
 
-import com.mukzzibba.server.ResultData;
 
 public class UserDB {
 	
 	
-	public static TreeMap<String,UserInfo> getDBfromFile(){
+	@SuppressWarnings("unchecked")
+	public static TreeMap<String,UserInfo> readDBfromFile(){
 		TreeMap<String,UserInfo> db=null;
 		File file=null;
 		FileInputStream fis=null;
@@ -57,39 +55,16 @@ public class UserDB {
 	}
 	
 	public void addToDBFile(UserInfo user){
-		TreeMap<String,UserInfo> db=getDBfromFile();
-		FileOutputStream fos=null;
-		ObjectOutputStream oos=null;
-		File file;
-		
+		TreeMap<String,UserInfo> db=readDBfromFile();
 		String key=new String(user.nickname);
 		db.put(key, user);
-		
-		file=new File("UserDB");
-		try {
-			fos=new FileOutputStream(file);
-			oos=new ObjectOutputStream(fos);
-			
-			oos.writeObject(db);
-			oos.flush();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				fos.close();
-				oos.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		writeToFileDB(db);
 	}
 	
 	public static void makeFirstDb(File file){
 		FileOutputStream fos=null;
 		ObjectOutputStream oos=null;
-		TreeMap<String, UserInfo> empty=null;
+		Map<String, UserInfo> empty=null;
 		
 		empty=new TreeMap<String, UserInfo>();
 		try {
@@ -114,12 +89,46 @@ public class UserDB {
 	
 	public static UserInfo getUserFromFile(String name){
 		TreeMap<String,UserInfo> db=null;
-		db=getDBfromFile();
+		db=readDBfromFile();
 		UserInfo res=db.get(name);
 		return res;
 	}
 	
-	public void UpdateUserResultData(){
+	public static void updateSingleUser(String name, String gameResult){
+		TreeMap<String,UserInfo> db=null;
+		UserInfo user=null;
 		
+		db=readDBfromFile();
+		user=getUserFromFile(name);
+		user.updateResult(gameResult);
+		db.remove(name);
+		db.put(name, user);
+		UserDB.writeToFileDB(db);
+	}
+	
+	public static void writeToFileDB(TreeMap<String,UserInfo> db){
+		FileOutputStream fos=null;
+		ObjectOutputStream oos=null;
+		File file;
+		
+		file=new File("UserDB");
+		try {
+			fos=new FileOutputStream(file);
+			oos=new ObjectOutputStream(fos);
+			
+			oos.writeObject(db);
+			oos.flush();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				fos.close();
+				oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

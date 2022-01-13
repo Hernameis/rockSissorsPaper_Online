@@ -1,21 +1,17 @@
 package com.mukzzibba.client.socketNetwork;
 
 import java.io.IOException;
-import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 
-import com.mukzzibba.server.Calculator;
 import com.mukzzibba.server.ResultData;
 import com.mukzzibba.client.data.ClientSetter;
-import com.mukzzibba.client.data.LoginData;
 import com.mukzzibba.client.data.UserData;
-import com.mukzzibba.server.ResultData;
-import com.mukzzibba.server.userDb.Checker;
-import com.mukzzibba.server.userDb.RankingBoard;
-import com.mukzzibba.server.userDb.Register;
+import com.mukzzibba.client.window.ClientFrame;
+import com.mukzzibba.client.window.ErrorDialog;
 import com.mukzzibba.util.IsBool;
 
 public class SignalToServer {
+	static String string;
 	
 	public static void sendMsg(String msg) {
 		OpenAndCloseSocket.OpenSocket();
@@ -37,17 +33,21 @@ public class SignalToServer {
 				}
 			} else if(msg.equals("dupC")) {
 				SendDataToServer.registData();
-				ReceiveDataFromServer.stringData();
+				string=ReceiveDataFromServer.stringData();
+				new ErrorDialog(string, ClientFrame.getInstance());
 			} else if (msg.equals("regi")) {
 				SendDataToServer.registData();
-				ReceiveDataFromServer.stringData();
+				string=ReceiveDataFromServer.stringData();
+				new ErrorDialog(string, ClientFrame.getInstance());
 			} else if (msg.equals("rank")) {
-				ReceiveDataFromServer.rankingData();
+				ReceiveDataFromServer.rankInfo();
 			} else if (IsBool.isGame(msg)) {
-				SendDataToServer.loginData();
+				SendDataToServer.loginData();	// 이게 어디로 가는거지?
 				ResultData res=null;
 				res=ReceiveDataFromServer.resultData();
 				ClientSetter.setResultData(res);
+			} else if (msg.equals("chat")) { 
+				// enterChatRoom(); // 대기실 채팅
 			} else {
 				System.out.println("입력이 잘못됨");
 			}

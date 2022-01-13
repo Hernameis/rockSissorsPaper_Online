@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
-import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.server.userDb.UserDB;
 import com.mukzzibba.server.userDb.UserInfo;
 
@@ -51,4 +51,20 @@ public class SendDataToClient {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void rankInfo(Socket sock, ArrayList<UserInfo> list){
+		OutputStream os=null;
+		ObjectOutputStream oos=null;
+		
+		try {
+			os=sock.getOutputStream();
+			oos=new ObjectOutputStream(os);
+			
+			oos.writeObject(list);
+			oos.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

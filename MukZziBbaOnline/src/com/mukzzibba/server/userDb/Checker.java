@@ -1,35 +1,28 @@
 package com.mukzzibba.server.userDb;
 
-import java.io.IOException;
 import java.net.Socket;
-import java.util.TreeMap;
 
 import com.mukzzibba.client.data.LoginData;
 import com.mukzzibba.client.data.RegistData;
-import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.server.ReceiveDataFromClient;
 import com.mukzzibba.server.SendDataToClient;
 
 public class Checker {
 	
 	public static void acceptLogin(Socket sock){
-		String msg="";
 		LoginData user=null;
 		user=ReceiveDataFromClient.loginData(sock);
 		String name=user.nickname.getText();
 		String pass=user.password.getText();
 		if(NicknameDB.isNameInDb(name)) {
 			if(isPasswordMatchNickname(name,pass)){
-				msg="닉네임 비번이 일치합니다";
 				SendDataToClient.intData(sock, 0);
 				SendDataToClient.userInfoData(sock,name);
 				return ;
 			} else {
-				msg="비밀번호가 틀렸습니다";
 				SendDataToClient.intData(sock, -1);
 			}
 		} else {
-			msg="닉네임을 찾을 수 없습니다";
 			SendDataToClient.intData(sock, -2);
 		}
 	}

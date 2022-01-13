@@ -1,0 +1,39 @@
+package com.mukzzibba.client.Panel;
+
+import java.awt.GridLayout;
+import java.awt.Panel;
+
+import com.mukzzibba.client.socketNetwork.SignalToServer;
+import com.mukzzibba.client.window.ClientFrame;
+
+public class PanelController {
+	
+	public PanelController() {
+		mainToStartPanel();
+	}
+	
+	public static void mainToStartPanel(){
+		ClientFrame.mainPanel.removeAll();
+		ClientFrame.mainPanel.add(new StartPanel());
+		ClientFrame.mainPanel.revalidate();
+	}
+	
+	public static void mainToLobbyPanel() {
+		SignalToServer.sendMsg("logi");
+		ClientFrame.mainPanel.removeAll();
+		ClientFrame.mainPanel.add(new LobbyPanel());
+		ClientFrame.mainPanel.revalidate();
+	}
+	
+	public static void mainToRankingPanel() {
+		ClientFrame.mainPanel.removeAll();
+		ClientFrame.mainPanel.add(new RankingPanel());
+		ClientFrame.mainPanel.revalidate();
+	}
+	
+	public static void mainToPlayPanel() {
+		ClientFrame.mainPanel.removeAll();
+		PanelData.mainPanel.add(new PlayPanel());
+		PanelData.mainPanel.revalidate();
+	}
+}

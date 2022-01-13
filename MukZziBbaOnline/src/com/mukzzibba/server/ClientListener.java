@@ -2,21 +2,9 @@ package com.mukzzibba.server;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.Socket;
-import java.util.Arrays;
-import java.util.Scanner;
 
-import com.mukzzibba.server.ResultData;
 import com.mukzzibba.server.userDb.DataController;
-import com.mukzzibba.server.userDb.UserChecker;
-import com.mukzzibba.server.userDb.UserDB;
-import com.mukzzibba.util.IsBool;
 
 public class ClientListener extends Thread{
 	Socket sock;

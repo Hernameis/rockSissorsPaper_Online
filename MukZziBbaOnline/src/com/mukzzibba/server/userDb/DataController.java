@@ -1,6 +1,5 @@
 package com.mukzzibba.server.userDb;
 
-import java.io.IOException;
 import java.net.Socket;
 
 import com.mukzzibba.server.Calculator;

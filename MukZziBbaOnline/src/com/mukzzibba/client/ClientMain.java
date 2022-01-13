@@ -6,6 +6,6 @@ public class ClientMain {
 
 	public static void main(String[] args) {
 		ClientFrame clientFrame=ClientFrame.getInstance();
-		clientFrame.frameStart();
+		clientFrame.start();
 	}
 }

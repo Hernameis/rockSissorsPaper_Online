@@ -1,0 +1,36 @@
+package com.mukzzibba.server.userDb;
+
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+
+import com.mukzzibba.server.SendDataToClient;
+
+
+public class RankingBoard {
+	
+	public static void getRank(Socket sock){	
+		TreeMap<String, UserInfo> db=null;
+		Set<String> key=null;
+		Iterator<String> ite=null;
+		ArrayList<UserInfo> rankList=null;
+		Entry<String, UserInfo> entry=null;
+		
+		db=UserDB.readDBfromFile();
+		System.out.println("db");
+		key=db.keySet();
+		ite=key.iterator();
+		entry=db.entrySet();
+		
+		rankList=new ArrayList<>();
+		while(ite.hasNext()){
+			rankList.add(db.get(ite.next()));
+		}
+		SendDataToClient.rankInfo(sock, rankList);
+	}
+}

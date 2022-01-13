@@ -1,0 +1,9 @@
+package com.mukzzibba.server.userDb;
+
+import java.util.TreeMap;
+
+public class SortByScore {
+	TreeMap<String,UserInfo> db=null;
+	
+	db=UserDB a;
+}

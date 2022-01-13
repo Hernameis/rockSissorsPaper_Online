@@ -9,6 +9,8 @@ import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.server.ResultData;
 
 public class GameResultDialog extends Dialog{
+	private static final long serialVersionUID = 3208370987402624793L;
+	
 	Panel p;
 	Label resultLabel;
 	ResultData user;

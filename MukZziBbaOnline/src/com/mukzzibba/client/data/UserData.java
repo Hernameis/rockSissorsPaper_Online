@@ -1,6 +1,5 @@
 package com.mukzzibba.client.data;
 
-import java.awt.TextField;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -16,7 +15,7 @@ public class UserData implements Serializable{
 	
 	public static boolean end=false;
 	
-	public static String serverIp="127.0.0.1";
+	public static String serverIp="192.168.0.80";
 	public static int port=5000;
 	public static int userChecked;
 	
@@ -25,9 +24,9 @@ public class UserData implements Serializable{
 	public static OutputStream os;
 	public static ObjectInputStream ois;
 	public static ObjectOutputStream oos;
+	public static UserInfo me;
 	
 	transient public static ResultData result;
 	transient public static LoginData login;
 	transient public static RegistData regist;
-	transient public static UserInfo me;
 }

@@ -3,6 +3,9 @@ package com.mukzzibba.server;
 import java.net.Socket;
 import java.util.Random;
 
+import com.mukzzibba.client.data.LoginData;
+import com.mukzzibba.server.userDb.UserDB;
+
 
 
 public class Calculator {
@@ -10,11 +13,18 @@ public class Calculator {
 	private Calculator() {}
 	
 	public static void sendResult(String msg, Socket sock){
-		ResultData res=null;
+		LoginData user=null;
+		String name=null;
+		ResultData resData=null;
 		
-		res=getResultData(msg);
-		SendDataToClient.resultData(res,sock);
-		// 데이터 저장
+		user=ReceiveDataFromClient.loginData(sock);
+		name=user.nickname.getText();
+		
+		resData=getResultData(msg);
+		
+		UserDB.updateSingleUser(name, resData.result);
+		SendDataToClient.resultData(resData,sock);
+		
 	}
 	
 	private static ResultData getResultData(String msg){

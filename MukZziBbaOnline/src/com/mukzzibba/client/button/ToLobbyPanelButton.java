@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 import com.mukzzibba.client.Panel.PanelController;
 
 public class ToLobbyPanelButton extends Button{
-	
+	private static final long serialVersionUID = -5872250765070528211L;
+
 	public ToLobbyPanelButton(String name) {
 		super(name);
 		addActionListener(new ActionListener() {

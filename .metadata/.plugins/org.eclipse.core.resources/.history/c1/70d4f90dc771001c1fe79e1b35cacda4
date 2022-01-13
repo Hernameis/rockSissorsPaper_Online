@@ -1,7 +1,0 @@
-package com.mukzzibba.client;
-
-public class DataController {
-	public static String serverIp;
-	public static String nickname;	
-	public static String password;
-}

@@ -1,16 +1,38 @@
 package com.mukzzibba.client.window;
 
-import java.awt.Button;
+import java.awt.BorderLayout;
 import java.awt.Dialog;
 import java.awt.Label;
 import java.awt.Window;
 
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import com.mukzzibba.client.button.ExitButton;
+
 public class ErrorDialog extends Dialog{
+	private static final long serialVersionUID = -5772609390448702755L;
+	
 	Label la;
-	Button butn;
+	ExitButton exit;
 	
 	public ErrorDialog(String msg, Window window) {
-		super(window, "true");
+		super(window);
+		this.setLayout(new BorderLayout());
+		JLabel msgLabel=new JLabel(msg);
+		msgLabel.setHorizontalAlignment(JLabel.CENTER);
+		
+		JPanel southPanel=new JPanel(new BorderLayout());
+		southPanel.setBorder(BorderFactory.createEmptyBorder(0, 30, 30, 30));
+		exit=new ExitButton("»Æ ¿Œ", this);
+		southPanel.add(exit);
+		
+		add(msgLabel);
+		add(southPanel, BorderLayout.SOUTH);
+		
+		setBounds(100,100,200,200);
+		setVisible(true);
 	}
 	
 }

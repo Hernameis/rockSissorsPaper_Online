@@ -4,12 +4,13 @@ import java.awt.Button;
 import java.awt.Frame;
 import java.awt.Panel;
 
-import com.mukzzibba.client.button.ButtonWithSendingMsg;
 import com.mukzzibba.client.button.ExitButton;
 import com.mukzzibba.client.button.ToLobbyPanelButton;
 import com.mukzzibba.client.window.ClientFrame;
 
 public class PlayPanel extends Panel{
+	private static final long serialVersionUID = 4110044752827072888L;
+	
 	Frame frame;
 	Button me;
 	Button com;

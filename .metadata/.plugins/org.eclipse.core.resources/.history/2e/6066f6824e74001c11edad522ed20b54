@@ -1,0 +1,20 @@
+package com.mukzzibba.client.button;
+
+import java.awt.Button;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import com.mukzzibba.client.Panel.LobbyPanel;
+import com.mukzzibba.client.Panel.PanelController;
+import com.mukzzibba.client.action.LoginActionListener;
+import com.mukzzibba.client.data.UserData;
+import com.mukzzibba.client.socketNetwork.SignalToServer;
+
+public class LogInButton extends Button{
+	
+	public LogInButton(String name) {
+		setLabel(name);
+		
+		addActionListener(new LoginActionListener());
+	}
+}

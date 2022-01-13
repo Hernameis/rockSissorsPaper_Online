@@ -8,9 +8,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashSet;
+import java.util.Set;
 
 public class NicknameDB {
 	
+	@SuppressWarnings("unchecked")
 	public static HashSet<String> getDBfromFile(){
 		HashSet<String> res=null;
 		FileInputStream fis=null;
@@ -94,7 +96,7 @@ public class NicknameDB {
 	public static void makeFirstDb(File file){
 		FileOutputStream fos = null;
 		ObjectOutputStream oos=null;
-		HashSet<String> empty=new HashSet<String>();
+		Set<String> empty=new HashSet<String>();
 		
 		try {
 			fos=new FileOutputStream(file);

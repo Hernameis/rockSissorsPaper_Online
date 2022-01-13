@@ -1,0 +1,39 @@
+package com.mukzzibba.server.userDb;
+
+import java.io.Serializable;
+
+public class UserInfo implements Serializable{
+	private static final long serialVersionUID = -3534762134651827696L;
+	
+	public String nickname;
+	transient public String password;
+	public int win;
+	public int lose;
+	public int draw;
+	public int playNum;
+	public double winRatio;
+	public int rank;
+	
+	public UserInfo(String name, String pass){
+		nickname=name;
+		password=pass;
+		playNum=0;
+		win=0;
+		lose=0;
+		draw=0;
+		winRatio=0.0;
+		rank=-1;
+	}
+	
+	public void updateResult(String result){
+		if(result.equals("½Â")) {
+			this.win++;
+		} else if (result.equals("ÆÐ")) {
+			this.lose++;
+		} else if (result.equals("¹«")){
+			this.draw++;
+		}
+		this.playNum++;
+		winRatio=win/playNum;
+	}
+}

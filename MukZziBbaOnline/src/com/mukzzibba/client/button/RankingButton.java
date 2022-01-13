@@ -6,7 +6,8 @@ import java.awt.event.ActionListener;
 import com.mukzzibba.client.Panel.PanelController;
 
 public class RankingButton extends ButtonWithSendingMsg{
-	
+	private static final long serialVersionUID = 1583382030264431514L;
+
 	public RankingButton(String name) {
 		super(name, "rank");
 		addActionListener(new ActionListener() {

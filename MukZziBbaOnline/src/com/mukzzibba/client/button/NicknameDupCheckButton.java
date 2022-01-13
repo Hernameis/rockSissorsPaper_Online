@@ -1,13 +1,13 @@
 package com.mukzzibba.client.button;
 
 import java.awt.Button;
-import java.awt.Dialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import com.mukzzibba.client.socketNetwork.SignalToServer;
 
 public class NicknameDupCheckButton extends Button {
+	private static final long serialVersionUID = -6313655508555498131L;
 
 	public NicknameDupCheckButton() {
 		super("중복 확인");		addActionListener(new ActionListener() {

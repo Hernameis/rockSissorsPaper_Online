@@ -8,7 +8,8 @@ import com.mukzzibba.client.socketNetwork.SignalToServer;
 
 
 public class ButtonWithSendingMsg extends Button{
-	
+	private static final long serialVersionUID = -3136411833438833433L;
+
 	public ButtonWithSendingMsg(String name, String msg){
 		super(name);
 		addActionListener(new ActionListener() {

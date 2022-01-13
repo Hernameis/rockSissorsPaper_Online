@@ -1,0 +1,13 @@
+package com.mukzzibba.server;
+
+import java.util.Comparator;
+
+import com.mukzzibba.server.userDb.UserInfo;
+
+public class RankingComparator implements Comparator<UserInfo>{
+
+	@Override
+	public int compare(UserInfo o1, UserInfo o2) {
+		return o1.score-o2.score;
+	}
+}

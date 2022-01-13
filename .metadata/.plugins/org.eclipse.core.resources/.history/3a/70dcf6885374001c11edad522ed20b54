@@ -1,0 +1,26 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Button;
+import java.awt.Dialog;
+import java.awt.Label;
+import java.awt.Window;
+
+public class ErrorDialog extends Dialog{
+	private static final long serialVersionUID = -5772609390448702755L;
+	
+	Label la;
+	Button butn;
+	
+	public ErrorDialog(String msg, Window window) {
+		super(window);
+		Label msgLabel=new Label(msg);
+		
+		add(msgLabel);
+		
+		setBounds(100,100,100,100);
+		setVisible(true);
+		
+		
+	}
+	
+}

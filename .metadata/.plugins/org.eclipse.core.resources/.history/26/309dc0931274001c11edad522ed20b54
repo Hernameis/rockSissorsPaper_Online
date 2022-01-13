@@ -1,0 +1,11 @@
+package com.mukzzibba.server.userDb;
+
+import java.util.TreeMap;
+
+import com.mukzzibba.server.userDb.UserDB;
+
+public class SortByScore {
+	TreeMap<String,UserInfo> db;
+	
+	db=UserDB.getDbfromFile
+}

@@ -6,6 +6,8 @@ import java.awt.Panel;
 import com.mukzzibba.client.button.DrawButton;
 
 public class DrawPanel extends Panel{
+	private static final long serialVersionUID = -8527384844859212210L;
+	
 	DrawButton rock;
 	DrawButton scissors;
 	DrawButton paper;

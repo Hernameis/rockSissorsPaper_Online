@@ -6,7 +6,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectInput;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
+import com.mukzzibba.client.Panel.RankingPanel;
 import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.server.ResultData;
 import com.mukzzibba.server.userDb.UserInfo;
@@ -18,7 +20,6 @@ public class ReceiveDataFromServer {
 		InputStream is=null;
 		
 		try {
-			System.out.println("cl socket "+UserData.mainSocket.getInputStream());
 			is=UserData.mainSocket.getInputStream();
 			res=is.read();
 		} catch (IOException e) {
@@ -49,7 +50,6 @@ public class ReceiveDataFromServer {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("°á°ú : "+msg);
 		return msg;
 	}
 	
@@ -101,7 +101,22 @@ public class ReceiveDataFromServer {
 		return res;
 	}
 	
-	public static void rankingData(){
+	@SuppressWarnings("unchecked")
+	public static void rankInfo(){
+		InputStream is=null;
+		ObjectInput ois=null;
+		ArrayList<UserInfo> list=null;
 		
+		try {
+			is=UserData.mainSocket.getInputStream();
+			ois=new ObjectInputStream(is);
+			
+			list=(ArrayList<UserInfo>)ois.readObject();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		RankingPanel.list=new ArrayList<UserInfo>(list);
 	}
 }

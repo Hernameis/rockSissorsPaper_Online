@@ -25,13 +25,15 @@ public class Register {
 		NicknameDB nickDb=new NicknameDB();
 		UserDB userDb=new UserDB();
 		UserInfo userInfo=new UserInfo(name, pass);
-		String msg="회원가입 실패";
+		String msg="회원가입 성공";
 		
-		nickDb.addToDBFile(name);
-		userDb.addToDBFile(userInfo);
-		if(nickDb.isNameInDb(name)){
-			msg="회원가입 성공";
+		if(NicknameDB.isNameInDb(name)){
+			msg="계정이 이미 존재합니다";
+		} else {
+			nickDb.addToDBFile(name);
+			userDb.addToDBFile(userInfo);			
 		}
+		
 		sendMsgToClient(msg, sock);	
 	}
 	

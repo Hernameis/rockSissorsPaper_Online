@@ -1,11 +1,8 @@
 package com.mukzzibba.client.socketNetwork;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.io.Reader;
 
 import com.mukzzibba.client.data.LoginData;
 import com.mukzzibba.client.data.UserData;
@@ -27,6 +24,7 @@ public class SendDataToServer {
 	}
 	
 	public static void loginData(){
+		System.out.println("로그인 시도");
 		OutputStream os=null;
 		ObjectOutputStream oos=null;;
 		LoginData user=UserData.login;
@@ -34,8 +32,8 @@ public class SendDataToServer {
 		try {
 			os=UserData.mainSocket.getOutputStream();
 			oos=new ObjectOutputStream(os);
-			
 			oos.writeObject(user);
+			oos.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 

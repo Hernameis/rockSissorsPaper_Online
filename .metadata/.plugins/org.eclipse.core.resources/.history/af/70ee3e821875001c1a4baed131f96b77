@@ -1,0 +1,34 @@
+package com.mukzzibba.client.window;
+
+import java.awt.BorderLayout;
+import java.awt.Dialog;
+import java.awt.Label;
+import java.awt.Panel;
+
+import com.mukzzibba.client.button.ExitButton;
+import com.mukzzibba.client.data.UserData;
+import com.mukzzibba.server.ResultData;
+
+public class GameResultDialog extends Dialog{
+	private static final long serialVersionUID = 3208370987402624793L;
+	
+	Panel mainPanel;
+	Label resultLabel;
+	ResultData user;
+	
+	public GameResultDialog() {
+		super(ClientFrame.getInstance(),true);
+		mainPanel=new Panel(new BorderLayout());
+		resultLabel=new Label();
+		user=UserData.result;
+		
+		Panel resultPanel=new Panel();
+		resultLabel.setText(user.userStr+" "+user.comStr+" "+user.result);
+		
+		mainPanel.add(resultLabel, BorderLayout.CENTER);
+		mainPanel.add(new ExitButton("´Ý±â", this), BorderLayout.SOUTH);
+		add(mainPanel);
+		setBounds(100,100,200,200);
+		setVisible(true);
+	}
+}

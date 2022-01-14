@@ -43,7 +43,6 @@ public class SendDataToClient {
 		OutputStream os=null;
 		
 		try {
-			System.out.println("serversocket "+sock);
 			os=sock.getOutputStream();
 			os.write(returnCode);
 			os.flush();

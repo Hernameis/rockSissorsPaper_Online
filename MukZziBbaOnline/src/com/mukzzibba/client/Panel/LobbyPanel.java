@@ -1,14 +1,24 @@
 package com.mukzzibba.client.Panel;
 
+import java.awt.BorderLayout;
 import java.awt.Frame;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import com.mukzzibba.client.button.ExitButton;
 import com.mukzzibba.client.button.PlayButton;
 import com.mukzzibba.client.button.RankingButton;
 import com.mukzzibba.client.button.ToStartPanelButton;
 import com.mukzzibba.client.data.UserData;
+import com.mukzzibba.client.socketNetwork.SignalToServer;
 import com.mukzzibba.client.window.ClientFrame;
 
 public class LobbyPanel extends Panel{
@@ -17,28 +27,87 @@ public class LobbyPanel extends Panel{
 	Frame frame;
 	PlayButton play;
 	RankingButton rankboard;
-	ToStartPanelButton toStart;
+	ToStartPanelButton goToStart;
 	ExitButton exit;
 	Panel infoPanel;
 	Label infoLabel;
 	
 	public LobbyPanel() {
 		frame=ClientFrame.getInstance();
+		this.setLayout(new BorderLayout());
 		
-		infoPanel=new Panel();
-		infoLabel=new Label();
-		infoLabel.setText(UserData.me.nickname+" 점수"+UserData.me.score+" "+"게임 횟수 :"+UserData.me.playNum+" "+UserData.me.win+" "+UserData.me.lose+" "+UserData.me.winRatio);
-		infoPanel.add(infoLabel);
+		Panel lobbyMainPanel=new Panel(new BorderLayout());
+		infoPanel=new Panel(new GridLayout(3,1));
+		Panel upperInfo=new Panel(new GridLayout(1,3));
+		upperInfo.add(new Label("유저 아이콘"));
+		upperInfo.add(new Label(UserData.me.nickname));
+		upperInfo.add(new Label());
 		
+		Panel centerInfo=new Panel(new GridLayout(1,5));
+		centerInfo.add(new Label("점수"));
+		centerInfo.add(new Label("승"));
+		centerInfo.add(new Label("무"));
+		centerInfo.add(new Label("패"));
+		centerInfo.add(new Label("승률"));
+		
+		Panel southInfo=new Panel(new GridLayout(1,5));
+		Label score=new Label(""+UserData.me.score);
+		Label win=new Label(""+UserData.me.playNum);
+		Label draw=new Label(""+UserData.me.win);
+		Label lose=new Label(""+UserData.me.lose);
+		Label rate=new Label(""+UserData.me.winRatio);
+		southInfo.add(score);
+		southInfo.add(win);
+		southInfo.add(draw);
+		southInfo.add(lose);
+		southInfo.add(rate);
+		
+		infoPanel.add(upperInfo);
+		infoPanel.add(centerInfo);
+		infoPanel.add(southInfo);
+		
+		Panel selectPanel=new Panel(new GridLayout(4,1));
+		Panel playPanel=new Panel(new GridLayout(1,3));
 		play=new PlayButton("플레이");
+		playPanel.add(new Panel());
+		playPanel.add(play);
+		playPanel.add(new Panel());
+		Panel rankboardPanel=new Panel(new GridLayout(1,3));
 		rankboard=new RankingButton("랭킹");
-		toStart=new ToStartPanelButton("뒤로");
-		exit=new ExitButton("나가기", frame);
+		rankboardPanel.add(new Panel());
+		rankboardPanel.add(rankboard);
+		rankboardPanel.add(new Panel());
 		
-		add(infoPanel);
-		add(play);             
-		add(rankboard);
-		add(toStart);
-		add(exit);
+		selectPanel.add(new Panel());
+		selectPanel.add(playPanel);             
+		selectPanel.add(rankboardPanel);
+		selectPanel.add(new Panel());
+		
+		lobbyMainPanel.add(infoPanel, BorderLayout.NORTH);
+		lobbyMainPanel.add(selectPanel, BorderLayout.CENTER);
+		
+		Panel chatPanel=new Panel(new BorderLayout(1,1));
+		JButton startChat=new JButton("채팅창");
+		startChat.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SignalToServer.sendMsg("chat");
+			}
+		});
+		chatPanel.add(startChat);
+		
+		Panel exitPanel=new Panel(new GridLayout(1,2));
+		goToStart=new ToStartPanelButton("첫 화면");
+		exit=new ExitButton("게임 종료", frame);
+		exitPanel.add(goToStart);
+		exitPanel.add(exit);
+		
+		add(new JPanel(), BorderLayout.NORTH);
+		add(lobbyMainPanel, BorderLayout.CENTER);
+		add(chatPanel, BorderLayout.EAST);
+		add(exitPanel, BorderLayout.SOUTH);
+		
+		
 	}
+	
 }

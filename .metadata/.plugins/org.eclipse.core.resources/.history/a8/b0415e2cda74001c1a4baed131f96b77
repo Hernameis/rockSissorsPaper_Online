@@ -1,0 +1,11 @@
+package com.mukzzibba.client.cheker;
+
+import com.mukzzibba.client.data.RegistData;
+
+public class Checker {
+	
+	public static boolean nicknameValidation(){
+		String str=new String(Regis);
+		return false;
+	}
+}

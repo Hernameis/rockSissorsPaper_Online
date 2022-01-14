@@ -1,8 +1,0 @@
-package com.mukzzibba.client.controller;
-
-public class PlayPanel extends Panel{
-	
-	public PlayPanel() {
-		
-	}
-}

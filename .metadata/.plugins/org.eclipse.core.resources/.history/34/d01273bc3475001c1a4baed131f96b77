@@ -1,0 +1,12 @@
+package com.mukzzibba.server;
+
+import java.net.Socket;
+
+public class ChatManager {
+	
+	public static void userEnter(Socket sock){
+
+		Thread chat=new ChatReader();
+		chat.start();
+	}
+}

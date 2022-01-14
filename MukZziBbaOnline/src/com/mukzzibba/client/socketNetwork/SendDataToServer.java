@@ -24,7 +24,6 @@ public class SendDataToServer {
 	}
 	
 	public static void loginData(){
-		System.out.println("로그인 시도");
 		OutputStream os=null;
 		ObjectOutputStream oos=null;;
 		LoginData user=UserData.login;
@@ -37,9 +36,5 @@ public class SendDataToServer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
-	}
-	
-	public static void ResultData(ResultData res){
-		
 	}
 }

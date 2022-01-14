@@ -1,0 +1,18 @@
+package com.mukzzibba.client.cheker;
+
+import com.mukzzibba.client.data.RegistData;
+import com.mukzzibba.client.data.UserData;
+
+public class Checker {
+	
+	public static boolean nicknameValidation(){
+		System.out.println("usernickregis "+UserData.regist.nickname);
+		String str=new String(UserData.regist.nickname.getText());
+		
+		if(str.length()<2 || str.length()>8){
+			return false;
+		}
+		
+		return true;
+	}
+}

@@ -43,8 +43,7 @@ public class UserInfo implements Serializable, Comparable<UserInfo>{
 			winRatio=0;
 		} else {
 			winRatio=(int)((win*10000/playNum))/100.0;
-			System.out.println(winRatio);
-		}
+		}	
 	}
 
 	@Override

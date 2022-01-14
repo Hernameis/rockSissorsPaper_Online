@@ -3,7 +3,8 @@
 	<item value="0" key="CallHierarchyViewPart.call_mode"/>
 	<item value="2" key="CallHierarchyViewPart.field_mode"/>
 	<item value="3" key="CallHierarchyViewPart.orientation"/>
-	<item value="500" key="CallHierarchyViewPart.ratio1"/>
+	<item value="500" key="CallHierarchyViewPart.ratio0"/>
+	<item value="820" key="CallHierarchyViewPart.ratio1"/>
 	<item value="1" key="SearchScopeActionGroup.search_scope_type"/>
 	<item value="500" key="CallHierarchyViewPart.ratio3"/>
 	<list key="SearchScopeActionGroup.working_set">

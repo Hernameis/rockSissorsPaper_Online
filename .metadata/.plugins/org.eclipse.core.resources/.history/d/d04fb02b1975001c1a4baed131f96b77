@@ -1,0 +1,39 @@
+package com.mukzzibba.client.window;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Dialog;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+
+import com.mukzzibba.client.button.ExitButton;
+import com.mukzzibba.client.data.UserData;
+import com.mukzzibba.server.ResultData;
+
+public class GameResultDialog extends Dialog{
+	private static final long serialVersionUID = 3208370987402624793L;
+	
+	Panel mainPanel;
+	Label resultLabel;
+	ResultData user;
+	
+	public GameResultDialog() {
+		super(ClientFrame.getInstance(),true);
+		mainPanel=new Panel(new BorderLayout());
+		user=UserData.result;
+		
+		Panel resultPanel=new Panel(new GridLayout(3,1));
+		resultPanel.add(new Button("컴퓨터는 "+user.comStr+"를 냈습니다"));
+		resultPanel.add(new Button("컴퓨터는 "+user.comStr+"를 냈습니다"));
+		resultPanel.add(new Button(user.result));
+		
+		
+		mainPanel.add(resultPanel, BorderLayout.CENTER);
+		mainPanel.add(new ExitButton("닫기", this), BorderLayout.SOUTH);
+		add(mainPanel);
+		setBounds(100,100,200,200);
+		setVisible(true);
+	}
+}

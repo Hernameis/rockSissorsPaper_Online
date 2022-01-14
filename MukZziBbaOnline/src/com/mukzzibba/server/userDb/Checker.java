@@ -20,10 +20,10 @@ public class Checker {
 				SendDataToClient.userInfoData(sock,name);
 				return ;
 			} else {
-				SendDataToClient.intData(sock, -1);
+				SendDataToClient.intData(sock, 1);
 			}
 		} else {
-			SendDataToClient.intData(sock, -2);
+			SendDataToClient.intData(sock, 2);
 		}
 	}
 	

@@ -1,0 +1,12 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.Image;
+
+public class ImageController {
+
+	public static Image getImage(String path){
+		Image res=null;
+		
+		return Image
+	}
+}

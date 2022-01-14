@@ -1,0 +1,8 @@
+package com.mukzzibba.client.cheker;
+
+public class Checker {
+	
+	public static boolean nicknameValidation(){
+		
+	}
+}

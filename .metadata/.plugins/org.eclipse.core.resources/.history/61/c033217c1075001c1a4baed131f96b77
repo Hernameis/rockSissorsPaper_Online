@@ -1,0 +1,31 @@
+package com.mukzzibba.server.userDb;
+
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.TreeMap;
+
+import com.mukzzibba.server.RankingComparator;
+import com.mukzzibba.server.SendDataToClient;
+
+
+public class RankingBoard {
+	
+	public static void getRank(Socket sock){	
+		TreeMap<String, UserInfo> db=null;
+		ArrayList<UserInfo> rankList=null;
+		
+		db=UserDB.readDBfromFile();
+		ArrayList<UserInfo> list=new ArrayList<>(db.values());
+		list.sort(new RankingComparator());
+		
+		rankList=new ArrayList<>();
+		int num=10;
+		if(db.size() < 10) {
+			num=db.size();
+		}
+		for(int i=0; i<num; i++) {
+			rankList.add(list.get(i));
+		}
+		SendDataToClient.rankInfo(sock, rankList);
+	}
+}

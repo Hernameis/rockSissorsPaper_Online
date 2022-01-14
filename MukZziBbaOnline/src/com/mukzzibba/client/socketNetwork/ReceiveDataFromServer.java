@@ -25,7 +25,6 @@ public class ReceiveDataFromServer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(res);
 		return res;
 	}
 	
@@ -93,11 +92,9 @@ public class ReceiveDataFromServer {
 			try {
 				ois.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		System.out.println(res.userStr+" "+res.comStr+" "+res.lose);
 		return res;
 	}
 	
@@ -106,6 +103,7 @@ public class ReceiveDataFromServer {
 		InputStream is=null;
 		ObjectInput ois=null;
 		ArrayList<UserInfo> list=null;
+		UserInfo me=null;
 		
 		try {
 			is=UserData.mainSocket.getInputStream();

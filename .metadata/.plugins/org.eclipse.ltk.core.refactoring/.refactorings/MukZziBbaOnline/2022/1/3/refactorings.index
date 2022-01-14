@@ -63,3 +63,12 @@
 1642064021102	Delete element
 1642064384232	Delete element
 1642064890560	Delete element
+1642121776485	Delete element
+1642123424363	Rename type 'ErrorDialog'
+1642123439479	Rename type 'RegisterDialog'
+1642123625207	Rename type 'NicknameDupCheckButton'
+1642130117531	Rename type 'Checker'
+1642131115929	Delete element
+1642138932182	Move compilation unit
+1642142082194	Delete element
+1642144149508	Rename type 'ErrorFrame'

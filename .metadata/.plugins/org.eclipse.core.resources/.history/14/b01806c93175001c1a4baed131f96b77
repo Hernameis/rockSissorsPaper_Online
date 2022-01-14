@@ -1,0 +1,11 @@
+package com.mukzzibba.server;
+
+public class ChatReader extends Thread{
+	
+	private Socket sock;
+	
+	@Override
+	public void run() {
+		
+	}
+}

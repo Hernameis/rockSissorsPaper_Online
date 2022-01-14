@@ -1,0 +1,26 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Dialog;
+import java.awt.GridLayout;
+import java.awt.Panel;
+
+public class dupLoginDialog extends Dialog{
+	
+	Panel centerPanel;
+	Panel southPanel;
+	
+	public dupLoginDialog(){
+		super(ClientFrame.getInstance(), "중복 로그인");
+		
+		setLayout(new GridLayout(2,1));
+		centerPanel=new Panel();
+		southPanel=new Panel();
+		
+		Label msg=new Label("중복 로그인이 감지되었습니다.");
+		Label msg=new Label("기존 접속을 끊고 종료하시겠습니까?");
+		centerPanel.add(Label)
+		
+		add(centerPanel);
+		add(southPanel);
+	}
+}

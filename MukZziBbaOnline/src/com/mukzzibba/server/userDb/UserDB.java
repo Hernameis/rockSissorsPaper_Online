@@ -7,8 +7,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+
+import com.mukzzibba.server.RankingComparator;
 
 
 public class UserDB {
@@ -101,6 +104,8 @@ public class UserDB {
 		db=readDBfromFile();
 		user=getUserFromFile(name);
 		user.updateResult(gameResult);
+		user.rank=returnRank(user.nickname);
+		
 		db.remove(name);
 		db.put(name, user);
 		UserDB.writeToFileDB(db);
@@ -130,5 +135,20 @@ public class UserDB {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public static int returnRank(String name){
+		UserInfo user=null;
+		TreeMap<String,UserInfo> db=readDBfromFile();
+		user=db.get(name);
+		ArrayList<UserInfo> list=new ArrayList<>(db.values());
+		list.sort(new RankingComparator());
+		int i=0;
+		for(i=0; i<list.size(); i++){
+			if(list.get(i).nickname.equals(user.nickname)){
+				break;
+			}
+		}
+		return i;
 	}
 }

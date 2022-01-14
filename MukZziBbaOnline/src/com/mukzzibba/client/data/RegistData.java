@@ -8,4 +8,5 @@ public class RegistData implements Serializable{
 	
 	public TextField nickname;
 	public TextField password;
+	public transient TextField passwordAgain;
 }

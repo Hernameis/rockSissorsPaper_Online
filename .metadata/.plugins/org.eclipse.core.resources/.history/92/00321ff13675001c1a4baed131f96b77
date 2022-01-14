@@ -1,0 +1,19 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Dialog;
+import java.awt.GridLayout;
+import java.awt.Panel;
+
+public class dupLoginDialog extends Dialog{
+	
+	Panel centerPanel;
+	Panel southPanel;
+	
+	public dupLoginDialog(){
+		super(ClientFrame.getInstance(), "중복 로그인");
+		
+		setLayout(new GridLayout(2,1));
+		cnterPanel=new Panel();
+		southPanel=new Panel();
+	}
+}

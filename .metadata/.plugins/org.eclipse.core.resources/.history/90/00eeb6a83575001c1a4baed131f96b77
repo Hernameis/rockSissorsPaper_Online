@@ -1,0 +1,21 @@
+package com.mukzzibba.server;
+
+import java.net.Socket;
+
+import com.mukzzibba.client.data.LoginData;
+
+public class ChatManager {
+	
+	public static void userEnter(Socket sock){
+		LoginData user;
+		String name="";
+		
+		user=ReceiveDataFromClient.loginData(sock);
+		name=user.nickname.getText();
+		
+		// 중복 if(){} 체크 해서 통신 한 번 더
+		ChatWriter.addOnlineUser(name, sock);
+		Thread chat=new ChatReader();
+		chat.start();
+	}
+}

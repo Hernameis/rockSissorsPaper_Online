@@ -3,6 +3,8 @@ package com.mukzzibba.server.userDb;
 import java.net.Socket;
 
 import com.mukzzibba.server.Calculator;
+import com.mukzzibba.server.ChatManager;
+import com.mukzzibba.server.ChatReader;
 import com.mukzzibba.util.IsBool;
 
 public class DataController {
@@ -18,6 +20,8 @@ public class DataController {
 			RankingBoard.getRank(sock);
 		} else if (IsBool.isGame(msg)) {
 			Calculator.sendResult(msg, sock);
+		} else if (msg.equals("chat")) {
+			ChatManager.userEnter(sock);
 		} else {
 			System.out.println("wrong input : "+msg);
 		}

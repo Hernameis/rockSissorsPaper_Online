@@ -4,7 +4,9 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+import com.mukzzibba.client.data.LoginData;
 import com.mukzzibba.server.RankingComparator;
+import com.mukzzibba.server.ReceiveDataFromClient;
 import com.mukzzibba.server.SendDataToClient;
 
 
@@ -26,6 +28,8 @@ public class RankingBoard {
 		for(int i=0; i<num; i++) {
 			rankList.add(list.get(i));
 		}
+		LoginData user=ReceiveDataFromClient.loginData(sock);
 		SendDataToClient.rankInfo(sock, rankList);
+		SendDataToClient.intData(sock, UserDB.returnRank(user.nickname.getText()));
 	}
 }

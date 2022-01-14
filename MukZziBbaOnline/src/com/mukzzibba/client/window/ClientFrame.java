@@ -1,14 +1,21 @@
 package com.mukzzibba.client.window;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Panel;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 
-import com.mukzzibba.client.Panel.PanelController;
+
+
+
+
+import com.mukzzibba.client.controller.PanelController;
 import com.mukzzibba.client.data.UserData;
 
 public class ClientFrame extends Frame {
@@ -37,11 +44,17 @@ public class ClientFrame extends Frame {
 				}
 			}
 		});
-	
+		Toolkit tool=Toolkit.getDefaultToolkit();
 		mainPanel=new Panel(new GridLayout(1,1));
 		add(mainPanel);
 
-		setBounds(100,100,500,500);
+		Dimension screenDimension;
+		screenDimension=tool.getScreenSize();
+		int screenX=(int)screenDimension.getWidth();
+		int screenY=(int)screenDimension.getHeight();
+		int frameWidth=500;
+		int frameHeight=500;
+		setBounds((screenX-frameWidth)/2,(screenY-frameHeight)/2,frameWidth,frameHeight);
 		setVisible(true);
 	}
 	

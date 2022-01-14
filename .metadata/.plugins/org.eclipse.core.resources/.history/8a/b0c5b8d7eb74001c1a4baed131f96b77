@@ -1,0 +1,34 @@
+package com.mukzzibba.client.button;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+import com.mukzzibba.client.Panel.PanelController;
+import com.mukzzibba.client.data.UserData;
+import com.mukzzibba.client.socketNetwork.SignalToServer;
+import com.mukzzibba.client.window.ErrorFrame;
+
+public class LogInButton extends JButton{
+	private static final long serialVersionUID = -1693197377299631256L;
+
+	public LogInButton(String name) {
+		super(name);
+		
+		addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SignalToServer.sendMsg("logi");
+				if(UserData.userChecked==0){
+					new ErrorFrame("로그인 성공");
+					PanelController.mainToLobbyPanel();
+				} else if (UserData.userChecked==1) {
+					new ErrorFrame("로그인 성공");
+				} else if (UserData.userChecked==2) {
+					new ErrorFrame("로그인 성공");
+				}
+			}
+		});
+	}
+}

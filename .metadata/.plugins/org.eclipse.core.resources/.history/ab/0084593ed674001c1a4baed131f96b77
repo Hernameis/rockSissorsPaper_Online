@@ -1,0 +1,17 @@
+package com.mukzzibba.client.button;
+
+import java.awt.Button;
+
+import javax.swing.JButton;
+
+import com.mukzzibba.client.action.LoginActionListener;
+
+public class LogInButton extends JButton{
+	private static final long serialVersionUID = -1693197377299631256L;
+
+	public LogInButton(String name) {
+		setLabel(name);
+		
+		addActionListener(new LoginActionListener());
+	}
+}

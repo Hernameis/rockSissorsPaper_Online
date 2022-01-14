@@ -1,5 +1,6 @@
 package com.mukzzibba.client.socketNetwork;
 
+import java.awt.Dialog;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
@@ -8,10 +9,12 @@ import com.mukzzibba.client.data.ClientSetter;
 import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.client.window.ClientFrame;
 import com.mukzzibba.client.window.ErrorDialog;
+import com.mukzzibba.client.window.dupLoginDialog;
 import com.mukzzibba.util.IsBool;
 
 public class SignalToServer {
 	static String string;
+	static int num;
 	
 	public static void sendMsg(String msg) {
 		OpenAndCloseSocket.OpenSocket();
@@ -40,14 +43,17 @@ public class SignalToServer {
 				string=ReceiveDataFromServer.stringData();
 				new ErrorDialog(string, ClientFrame.getInstance());
 			} else if (msg.equals("rank")) {
+				SendDataToServer.loginData();
 				ReceiveDataFromServer.rankInfo();
 			} else if (IsBool.isGame(msg)) {
-				SendDataToServer.loginData();	// 이게 어디로 가는거지?
+				SendDataToServer.loginData();
 				ResultData res=null;
 				res=ReceiveDataFromServer.resultData();
 				ClientSetter.setResultData(res);
 			} else if (msg.equals("chat")) { 
-				// enterChatRoom(); // 대기실 채팅
+				SendDataToServer.loginData();
+				num=ReceiveDataFromServer.intData();
+				new dupLoginDialog();
 			} else {
 				System.out.println("입력이 잘못됨");
 			}

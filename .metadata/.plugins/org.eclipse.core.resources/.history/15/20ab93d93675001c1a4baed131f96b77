@@ -1,0 +1,10 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Dialog;
+
+public class dupLoginDialog extends Dialog{
+	
+	public dupLoginDialog(){
+		super(ClientFrame.getInstance(), "중복 로그인");
+	}
+}

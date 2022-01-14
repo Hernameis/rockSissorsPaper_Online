@@ -3,10 +3,16 @@ package com.mukzzibba.client.Panel;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
+import java.awt.Toolkit;
 
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,17 +28,29 @@ public class StartPanel extends Panel{
 	private static final long serialVersionUID = 6638658803778634224L;
 	
 	Frame frame;
-	Button registerButton;
-	Button loginButton;
+	JButton registerButton;
+	JButton loginButton;
 	JButton exitButton;
 	LoginData loginData;
 	
 	public StartPanel() {
 		frame=ClientFrame.getInstance();
+		ImageIcon intro=new ImageIcon(".\\img\\intro.png");
 		this.setLayout(new BorderLayout());
 		
-		JPanel northPanel=new JPanel();
-		Panel centerPanel=new Panel();
+		Panel northPanel=new Panel();
+		
+		JPanel centerPanel=new JPanel(new BorderLayout());
+		JPanel imagePanel=new JPanel();
+		JLabel imageLabel=new JLabel(intro);
+		imagePanel.add(imageLabel);
+		JPanel loginPanel=new JPanel(new GridLayout(3,2));
+		loginPanel.setBorder(BorderFactory.createEmptyBorder(50,50,50,50));
+		
+		centerPanel.setBorder(BorderFactory.createEmptyBorder(50,30,0,30));
+		centerPanel.add(imagePanel, BorderLayout.NORTH);
+		centerPanel.add(loginPanel, BorderLayout.CENTER);
+		
 		Panel southPanel=new Panel();
 		
 		
@@ -41,16 +59,17 @@ public class StartPanel extends Panel{
 		
 		loginData.nickname=new TextField();
 		loginData.password=new TextField();
+		loginData.password.setEchoChar('*');
 		registerButton=new RegisterButton("회원 가입");
 		loginButton=new LogInButton("로그인");
 		exitButton=new ExitButton("나가기", frame);
 		
-		centerPanel.add(new JLabel("닉네임"));
-		centerPanel.add(loginData.nickname);
-		centerPanel.add(new Label("비밀 번호"));
-		centerPanel.add(loginData.password);
-		centerPanel.add(loginButton);
-		centerPanel.add(registerButton);
+		loginPanel.add(new Label("닉네임"));
+		loginPanel.add(loginData.nickname);
+		loginPanel.add(new Label("비밀번호"));
+		loginPanel.add(loginData.password);
+		loginPanel.add(loginButton);
+		loginPanel.add(registerButton);
 
 		southPanel.add(exitButton);
 		

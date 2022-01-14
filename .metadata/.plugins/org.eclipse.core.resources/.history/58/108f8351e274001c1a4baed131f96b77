@@ -1,0 +1,43 @@
+package com.mukzzibba.client.cheker;
+
+import com.mukzzibba.client.data.RegistData;
+import com.mukzzibba.client.data.UserData;
+
+public class Checker {
+	
+	public static boolean nicknameValidation(){
+		String str=new String(UserData.regist.nickname.getText());
+		
+		if(str.length()<2 || str.length()>8){
+			return false;
+		}	
+		return true;
+	}
+	
+	public static boolean passValidation(){
+		if(passNumError || )
+		return false;
+	}
+	
+	public static boolean passNumError(){
+		String pass=UserData.regist.password.getText();
+		int length=pass.length();
+		
+		if(length<4 || length>16){
+			
+		}
+	}
+	
+	public static boolean passwordMismatch(){
+		String pass=null;
+		String passAgain=null;
+		
+		pass=UserData.regist.password.getText();
+		pass=UserData.regist.passwordAgain.getText();
+		
+		if(pass.equals(passAgain)){
+			return false;
+		}
+		return true;
+	}
+}

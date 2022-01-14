@@ -4,9 +4,11 @@ import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.mukzzibba.client.Panel.PanelController;
+import javax.swing.JButton;
 
-public class ToLobbyPanelButton extends Button{
+import com.mukzzibba.client.controller.PanelController;
+
+public class ToLobbyPanelButton extends JButton{
 	private static final long serialVersionUID = -5872250765070528211L;
 
 	public ToLobbyPanelButton(String name) {

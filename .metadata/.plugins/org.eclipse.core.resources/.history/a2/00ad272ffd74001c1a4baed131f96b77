@@ -1,0 +1,14 @@
+package com.mukzzibba.client.controller;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class ImageController {
+
+	public static Image getImage(String path){
+		Image res=null;
+		res=new ImageIcon(path);
+		return Image
+	}
+}

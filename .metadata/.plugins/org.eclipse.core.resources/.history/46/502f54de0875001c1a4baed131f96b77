@@ -1,0 +1,37 @@
+package com.mukzzibba.client.button;
+
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import com.mukzzibba.client.cheker.NameChecker;
+import com.mukzzibba.client.cheker.PassChecker;
+import com.mukzzibba.client.data.UserData;
+import com.mukzzibba.client.socketNetwork.SignalToServer;
+import com.mukzzibba.client.window.ErrorFrame;
+
+public class ConfirmInRegisterButton extends ExitButton{
+	private static final long serialVersionUID = 6074502414775671090L;
+	
+	
+	public ConfirmInRegisterButton(String name, Window windowForExit) {
+		super(name, windowForExit);
+		addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(!PassChecker.passValidation()){
+					if(PassChecker.passNumError()){
+						new ErrorFrame("비밀 번호 규칙을 확인해주세요");						
+					} else {
+						new ErrorFrame("비밀번호가 일치하지 않습니다");
+					}
+					return ;
+				}
+				SignalToServer.sendMsg("regi");
+			}
+		});
+		
+		setEnabled(true);
+		
+	}
+}

@@ -17,6 +17,7 @@ public class DrawPanel extends Panel{
 	public DrawPanel() {
 		this.setLayout(new GridLayout(1,3));
 		rock=new DrawButton("rock");
+		System.out.println(rock.getSize().height);
 		rock.setIcon(new ImageIcon(".\\img\\ro.png"));
 		scissors=new DrawButton("scis");
 		scissors.setIcon(new ImageIcon(".\\img\\si.png"));

@@ -1,0 +1,15 @@
+package com.mukzzibba.client.socketNetwork;
+
+import java.net.Socket;
+
+public class ChatManager {
+	
+	public static void enterChatChannel(){
+		Thread reader=new ChatReader();
+		reader.start();
+	}
+	
+	public static void closeChatStream(Socket sock){
+		
+	}
+}

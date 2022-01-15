@@ -5,11 +5,13 @@ import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Panel;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import com.mukzzibba.client.button.ExitButton;
 import com.mukzzibba.client.button.ToLobbyPanelButton;
+import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.client.window.ClientFrame;
 
 public class PlayPanel extends Panel{
@@ -34,14 +36,20 @@ public class PlayPanel extends Panel{
 		Panel emptyPanel=new Panel();
 				
 		toLobby=new ToLobbyPanelButton("뒤로");
-		exit=new ExitButton("나가기", frame);
+		toLobby.setIcon(new ImageIcon(".\\img\\back.png"));
+		exit=new ExitButton("", frame);
+		exit.setIcon(new ImageIcon(".\\img\\exit.png"));
 		exitPanel.add(toLobby);
 		exitPanel.add(new Panel());
 		exitPanel.add(new Panel());
 		exitPanel.add(new Panel());
 		exitPanel.add(exit);
 		
-		com=new JButton("컴");
+		UserData.gameStart=1;
+		UserData.computer=new JButton();
+		com=UserData.computer;
+		Thread comChanging=new computerImageChange();
+		comChanging.start();
 		comPanel.add(new Panel());
 		comPanel.add(com);
 		comPanel.add(new Panel());

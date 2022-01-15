@@ -1,0 +1,5 @@
+package com.mukzzibba.client.socketNetwork;
+
+public class ChatWriter {
+
+}

@@ -6,6 +6,5 @@ public class ServerMain {
 		Thread cw=new ChatWriter();
 		cw.start();
 		new WaitingForClient();
-		//이거 동시에 하면 안됨
 	}
 }

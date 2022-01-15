@@ -26,7 +26,7 @@ public class GameResultDialog extends Dialog{
 		
 		Panel resultPanel=new Panel(new GridLayout(3,1));
 		resultPanel.add(new Button("당신은 "+enToKor(user.userStr)+"를 냈고"));
-		resultPanel.add(new Button("컴퓨터는 "+enToKor(user.comStr)+"를 냈습니다"));
+		resultPanel.add(new Button("상대는 "+enToKor(user.comStr)+"를 냈습니다"));
 		resultPanel.add(new Button(enToKor(user.result)));
 		
 		
@@ -47,11 +47,11 @@ public class GameResultDialog extends Dialog{
 		} else if (eng.equals("pape")) {
 			msg="보";
 		} else if (eng.equals("win")) {
-			msg="이겼습니다!!";
+			msg="승리!!";
 		} else if (eng.equals("draw")) {
-			msg="비겼습니다..";
+			msg="무승부..";
 		} else if (eng.equals("lose")) {
-			msg="졌습니다ㅠㅠ";
+			msg="패배ㅠㅠ";
 		}
 		return msg;
 	}

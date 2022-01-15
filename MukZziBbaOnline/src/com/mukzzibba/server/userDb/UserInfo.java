@@ -43,7 +43,9 @@ public class UserInfo implements Serializable, Comparable<UserInfo>{
 			winRatio=0;
 		} else {
 			winRatio=(int)((win*10000/playNum))/100.0;
-		}	
+		}
+		rank=UserDB.returnRank(nickname);
+		System.out.println("서버에 갱신된 랭크는 "+rank);
 	}
 
 	@Override

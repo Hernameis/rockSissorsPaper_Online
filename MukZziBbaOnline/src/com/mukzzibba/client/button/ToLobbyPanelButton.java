@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import com.mukzzibba.client.controller.PanelController;
+import com.mukzzibba.client.data.UserData;
 
 public class ToLobbyPanelButton extends JButton{
 	private static final long serialVersionUID = -5872250765070528211L;
@@ -17,6 +18,7 @@ public class ToLobbyPanelButton extends JButton{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PanelController.mainToLobbyPanel();
+				UserData.gameStart=0;
 			}
 		});
 	}

@@ -17,7 +17,7 @@ public class SignalToServer {
 	static int num;
 	
 	public static void sendMsg(String msg) {
-		OpenAndCloseSocket.OpenSocket();
+		SocketController.OpenSocket();
 		StreamOpener.openOutStream();
 		StreamOpener.openInStream();
 		
@@ -45,22 +45,30 @@ public class SignalToServer {
 			} else if (msg.equals("rank")) {
 				SendDataToServer.loginData();
 				ReceiveDataFromServer.rankInfo();
+				UserData.me.rank=ReceiveDataFromServer.intData();
 			} else if (IsBool.isGame(msg)) {
 				SendDataToServer.loginData();
 				ResultData res=null;
 				res=ReceiveDataFromServer.resultData();
 				ClientSetter.setResultData(res);
 			} else if (msg.equals("chat")) { 
-				SendDataToServer.loginData();
+				SocketController.openChatSocket();
+				SendDataToServer.loginData(); 
 				num=ReceiveDataFromServer.intData();
-				new dupLoginDialog();
+				if(num==1){
+					new dupLoginDialog();					
+				} else {
+					ChatManager.enterChatChannel();
+				}
 			} else {
 				System.out.println("입력이 잘못됨");
 			}
 		
-		StreamCloser.closeInStream();
-		StreamCloser.closeOutStream();
-		OpenAndCloseSocket.CloseSocket();
+		if(!msg.equals("chat")){
+			StreamCloser.closeInStream();
+			StreamCloser.closeOutStream();
+			SocketController.CloseSocket();			
+		}
 	}
 	
 	public static void sendLoginInfo() {

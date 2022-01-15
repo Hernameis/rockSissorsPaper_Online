@@ -1,0 +1,19 @@
+package com.mukzzibba.client.socketNetwork;
+
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+
+import com.mukzzibba.client.data.UserData;
+
+public class ChatWriter {	// 전송버튼 눌러질 때
+	private Socket sock; 
+	private OutputStream os;
+	private OutputStreamWriter osw;
+	private BufferedWriter
+	
+	public ChatWriter(){
+		sock=UserData.chatSocket;
+		
+	}
+}

@@ -11,7 +11,10 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.mukzzibba.client.data.LoginData;
 import com.mukzzibba.server.RankingComparator;
+import com.mukzzibba.server.ReceiveDataFromClient;
+import com.mukzzibba.server.SendDataToClient;
 
 
 public class UserDB {
@@ -100,14 +103,15 @@ public class UserDB {
 	public static void updateSingleUser(String name, String gameResult){
 		TreeMap<String,UserInfo> db=null;
 		UserInfo user=null;
-		
+
 		db=readDBfromFile();
-		user=getUserFromFile(name);
-		user.updateResult(gameResult);
-		user.rank=returnRank(user.nickname);
-		
+		user=getUserFromFile(name);		
 		db.remove(name);
 		db.put(name, user);
+		user.updateResult(gameResult);		
+		db.remove(name);
+		db.put(name, user);
+		
 		UserDB.writeToFileDB(db);
 	}
 	
@@ -138,6 +142,7 @@ public class UserDB {
 	}
 	
 	public static int returnRank(String name){
+		System.out.println("∑©≈© int ∏Æ≈œ");
 		UserInfo user=null;
 		TreeMap<String,UserInfo> db=readDBfromFile();
 		user=db.get(name);

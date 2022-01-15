@@ -1,0 +1,9 @@
+package com.mukzzibba.client.socketNetwork;
+
+import java.io.IOException;
+
+import com.mukzzibba.client.data.UserData;
+
+public class StreamCloser {
+
+}

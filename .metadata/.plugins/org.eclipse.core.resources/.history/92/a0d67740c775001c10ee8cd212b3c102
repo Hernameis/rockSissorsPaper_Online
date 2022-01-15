@@ -1,0 +1,8 @@
+package com.mukzzibba.client.socketNetwork;
+
+public class ChatManager {
+	
+	public static void enterChatRoom(){
+		
+	}
+}

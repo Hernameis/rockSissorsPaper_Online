@@ -15,6 +15,7 @@ public class RankingBoard {
 	public static void getRank(Socket sock){	
 		TreeMap<String, UserInfo> db=null;
 		ArrayList<UserInfo> rankList=null;
+		int userRank=0;
 		
 		db=UserDB.readDBfromFile();
 		ArrayList<UserInfo> list=new ArrayList<>(db.values());
@@ -30,6 +31,12 @@ public class RankingBoard {
 		}
 		LoginData user=ReceiveDataFromClient.loginData(sock);
 		SendDataToClient.rankInfo(sock, rankList);
-		SendDataToClient.intData(sock, UserDB.returnRank(user.nickname.getText()));
+		for(int i=0; i<num; i++){
+			if(list.get(i).nickname.equals(user.nickname.getText())){
+				userRank=i+1;
+				break;
+			}
+		}
+		SendDataToClient.intData(sock, userRank);
 	}
 }

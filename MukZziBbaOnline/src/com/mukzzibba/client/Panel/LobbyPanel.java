@@ -9,6 +9,7 @@ import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -39,7 +40,11 @@ public class LobbyPanel extends Panel{
 		Panel lobbyMainPanel=new Panel(new BorderLayout());
 		infoPanel=new Panel(new GridLayout(3,1));
 		Panel upperInfo=new Panel(new GridLayout(1,3));
-		upperInfo.add(new Label("유저 아이콘"));
+
+		JButton userLabel=new JButton();
+		ImageIcon userIcon=new ImageIcon(".\\img\\user.png");
+		userLabel.setIcon(userIcon);
+		upperInfo.add(userLabel);
 		upperInfo.add(new Label(UserData.me.nickname));
 		upperInfo.add(new Label());
 		
@@ -69,14 +74,14 @@ public class LobbyPanel extends Panel{
 		Panel selectPanel=new Panel(new GridLayout(4,1));
 		Panel playPanel=new Panel(new GridLayout(1,3));
 		play=new PlayButton("플레이");
-		playPanel.add(new Panel());
+		ImageIcon playIcon=new ImageIcon(".\\img\\play.png");
+		play.setIcon(playIcon);
 		playPanel.add(play);
-		playPanel.add(new Panel());
 		Panel rankboardPanel=new Panel(new GridLayout(1,3));
 		rankboard=new RankingButton("랭킹");
-		rankboardPanel.add(new Panel());
+		ImageIcon rankIcon=new ImageIcon(".\\img\\rank.png");
+		rankboard.setIcon(rankIcon);
 		rankboardPanel.add(rankboard);
-		rankboardPanel.add(new Panel());
 		
 		selectPanel.add(new Panel());
 		selectPanel.add(playPanel);             
@@ -86,15 +91,7 @@ public class LobbyPanel extends Panel{
 		lobbyMainPanel.add(infoPanel, BorderLayout.NORTH);
 		lobbyMainPanel.add(selectPanel, BorderLayout.CENTER);
 		
-		Panel chatPanel=new Panel(new BorderLayout(1,1));
-		JButton startChat=new JButton("채팅창");
-		startChat.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				SignalToServer.sendMsg("chat");
-			}
-		});
-		chatPanel.add(startChat);
+		ChatPanel chatPanel=new ChatPanel();
 		
 		Panel exitPanel=new Panel(new GridLayout(1,2));
 		goToStart=new ToStartPanelButton("첫 화면");
@@ -106,7 +103,6 @@ public class LobbyPanel extends Panel{
 		add(lobbyMainPanel, BorderLayout.CENTER);
 		add(chatPanel, BorderLayout.EAST);
 		add(exitPanel, BorderLayout.SOUTH);
-		
 		
 	}
 	

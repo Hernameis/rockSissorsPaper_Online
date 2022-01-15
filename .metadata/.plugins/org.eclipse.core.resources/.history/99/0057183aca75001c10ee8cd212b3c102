@@ -1,0 +1,13 @@
+package com.mukzzibba.client.socketNetwork;
+
+import java.net.Socket;
+
+import com.mukzzibba.client.data.UserData;
+
+public class ChatWriter extends Thread{
+	private Socket sock; 
+	
+	public ChatWriter(){
+		sock=UserData.chatSocket;
+	}
+}

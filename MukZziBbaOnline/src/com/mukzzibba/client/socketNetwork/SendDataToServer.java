@@ -37,4 +37,17 @@ public class SendDataToServer {
 			e.printStackTrace();
 		} 
 	}
+	
+	public static void intData(int msg){
+		OutputStream os=null;
+		
+		try {
+			os=UserData.mainSocket.getOutputStream();
+			
+			os.write(msg);
+			os.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

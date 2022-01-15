@@ -1,0 +1,22 @@
+package com.mukzzibba.client.Panel;
+
+import javax.swing.JButton;
+
+import com.mukzzibba.client.data.UserData;
+
+public class computerImageChange extends Thread {
+	
+	JButton com;
+	Random ran;
+	
+	public computerImageChange(){
+		com=UserData.computer;
+	}
+	
+	@Override
+	public void run() {
+		while(UserData.gameStart!=0){
+			
+		}
+	}
+}

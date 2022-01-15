@@ -1,0 +1,12 @@
+package com.mukzzibba.client.Panel;
+
+import javax.swing.JButton;
+
+public class computerImageChange extends Thread {
+	
+	JButton com;
+	
+	public computerImageChange(){
+		
+	}
+}

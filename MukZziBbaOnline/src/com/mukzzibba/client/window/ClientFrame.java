@@ -15,21 +15,23 @@ import java.io.IOException;
 
 
 
+
 import com.mukzzibba.client.controller.PanelController;
 import com.mukzzibba.client.data.UserData;
+import com.mukzzibba.client.socketNetwork.ChatManager;
 
 public class ClientFrame extends Frame {
 	private static final long serialVersionUID = 2932615732842895112L;
 	
 	public static Panel mainPanel;
-	private static ClientFrame singleTone;
+	private static ClientFrame mainFrame;
 	
 	private ClientFrame() {
 		addWindowListener(new WindowAdapter() {
 			
 			@Override
 			public void windowClosing(WindowEvent e) {
-				singleTone.dispose();
+				mainFrame.dispose();
 			}
 			
 			@Override
@@ -38,6 +40,10 @@ public class ClientFrame extends Frame {
 				try {
 					if(UserData.mainSocket!=null){						
 						UserData.mainSocket.close();
+					}
+					if(UserData.chatSocket!=null){
+						UserData.chatSocket.close();
+						ChatManager.closeChatStream();
 					}
 				} catch (IOException e1) {
 					e1.printStackTrace();
@@ -59,10 +65,10 @@ public class ClientFrame extends Frame {
 	}
 	
 	public static ClientFrame getInstance() {
-		if (singleTone==null) {			
-			singleTone=new ClientFrame();
+		if (mainFrame==null) {			
+			mainFrame=new ClientFrame();
 		}
-		return singleTone;
+		return mainFrame;
 	}
 	
 	public void start() {

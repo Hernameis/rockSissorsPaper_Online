@@ -1,0 +1,12 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Dimension;
+
+public class LocationManager {
+	
+	Frame frame;
+	
+	public static Dimension centerOfMainFrame(){
+		
+	}
+}

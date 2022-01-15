@@ -17,13 +17,15 @@ public class ClientListener extends Thread{
 		this.sock=sock;
 		msgNum=4;
 		charArr=new char[msgNum];
-	}
+	} 
 	
 	@Override
 	public void run() {
 		msg=msgFromClient(sock);
 		DataController.SendResultToClient(msg, sock);
-		Closer.closeSocket(sock);
+		if(!msg.equals("chat")){			
+			Closer.closeSocket(sock);
+		}
 	}
 	
 	private String msgFromClient(Socket sock) {

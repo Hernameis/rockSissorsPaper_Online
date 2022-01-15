@@ -11,20 +11,35 @@ public class ChatReader extends Thread{
 	private Socket sock;
 	private BufferedReader br;
 	private String read;
+	private String name;
+	
+	public ChatReader(Socket sock, String name){
+		this.sock=sock;
+		this.name=name;
+	}
 	
 	@Override
 	public void run() {
-		br=openStream(sock);
-		while(sock.isConnected()) {
+		if(sock!=null){
+			br=openStream(sock);			
+		}
+		while(true) {
 			try {
 				read=br.readLine();
-				ChatWriter.addStrToQueue(read);
+				if(read==null){
+					break;
+				}
+				System.out.println(read);
+				ChatWriter.addStrToQueue(name+" : "+read);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+		ChatWriter.removeUser(name);
 		closeStream(sock);
 		closeSocket(sock);
+		System.out.println("연결이 종료되었습니다");
+		
 	}
 	
 	private BufferedReader openStream(Socket sock){

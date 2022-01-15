@@ -1,0 +1,9 @@
+package com.mukzzibba.client.socketNetwork;
+
+public class ChatManager {
+	
+	@Override
+	public void run() {
+		
+	}
+}

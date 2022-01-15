@@ -1,0 +1,9 @@
+package com.mukzzibba.client.socketNetwork;
+
+public class ChatManager extends Thread{
+	
+	@Override
+	public void run() {
+		super.run();
+	}
+}

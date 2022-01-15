@@ -1,0 +1,82 @@
+package com.mukzzibba.server;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.Socket;
+
+public class ChatReader extends Thread{
+	
+	private Socket sock;
+	private BufferedReader br;
+	private String read;
+	
+	public ChatReader(Socket sock){
+		this.sock=sock;
+	}
+	
+	@Override
+	public void run() {
+		if(sock!=null){
+			br=openStream(sock);			
+		}
+		while(true) {
+			try {
+				read=br.readLine();
+				System.out.println("??");
+				ChatWriter.addStrToQueue(read);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+//		closeStream(sock);
+//		closeSocket(sock);
+	}
+	
+	private BufferedReader openStream(Socket sock){
+		InputStream is=null;
+		InputStreamReader isr=null;
+		BufferedReader br=null;
+		
+		try {
+			is=sock.getInputStream();
+			isr=new InputStreamReader(is);
+			br=new BufferedReader(isr);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+				
+		return br;
+	}
+	
+	private void closeStream(Socket sock){
+		InputStream is=null;
+		InputStreamReader isr=null;
+		BufferedReader br=null;
+		
+		try {
+			is=sock.getInputStream();
+			isr=new InputStreamReader(is);
+			br=new BufferedReader(isr);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+				isr.close();
+				is.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void closeSocket(Socket sock){
+		try {
+			sock.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

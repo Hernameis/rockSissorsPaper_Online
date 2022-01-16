@@ -1,7 +1,0 @@
-package com.tanktank.client;
-
-import java.awt.Panel;
-
-public class MainPanel extends Panel{
-
-}

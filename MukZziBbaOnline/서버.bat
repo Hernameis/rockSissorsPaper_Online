@@ -1,2 +1,3 @@
-javac -d bin -sourcepath src src\com\mukzzibba\client\ServerMain.java
+javac -d bin -sourcepath src src\com\mukzzibba\server\ServerMain.java
 java -classpath bin; com.mukzzibba.server.ServerMain
+pause

@@ -1,5 +1,0 @@
-package com.tanktank.client;
-
-public class StartPanel extends Panel{
-
-}

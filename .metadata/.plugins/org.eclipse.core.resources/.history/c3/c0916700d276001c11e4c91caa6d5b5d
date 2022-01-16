@@ -22,7 +22,7 @@ public class ChatWriter {	// 전송버튼 눌러질 때
 			bw=new BufferedWriter(osw);
 			
 			bw.write(msg);
-			bw.newLine();
+			bw.write(System.lineSeparator());
 			bw.flush();
 		} catch (IOException e) {
 			e.printStackTrace();

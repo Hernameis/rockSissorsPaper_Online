@@ -78,7 +78,7 @@ public class ChatWriter extends Thread{
 	
 	private static void useBufferedStream(BufferedWriter bw, String msg) throws IOException{
 		bw.write(msg);
-		bw.write(System.lineSeparator());
+		bw.newLine();
 		bw.flush();
 	}
 	

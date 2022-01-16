@@ -32,8 +32,8 @@ public class ErrorDialog extends Dialog{
 		
 		add(msgLabel);
 		add(southPanel, BorderLayout.SOUTH);
-			
-		setBounds(100,100,200,200);
+		
+		setBounds(Location.startX()-100,Location.startY()-100,200,200);
 		setVisible(true);
 	}
 	

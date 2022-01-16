@@ -33,7 +33,7 @@ public class GameResultDialog extends Dialog{
 		mainPanel.add(resultPanel, BorderLayout.CENTER);
 		mainPanel.add(new ExitButton("´Ý±â", this), BorderLayout.SOUTH);
 		add(mainPanel);
-		setBounds(100,100,200,200);
+		setBounds(Location.startX()-100,Location.startY()-100,200,200);
 		setVisible(true);
 	}
 	

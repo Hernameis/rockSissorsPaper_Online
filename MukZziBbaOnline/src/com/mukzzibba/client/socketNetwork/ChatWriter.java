@@ -15,7 +15,6 @@ public class ChatWriter {	// 전송버튼 눌러질 때
 		OutputStream os=null;
 		OutputStreamWriter osw=null;
 		BufferedWriter bw=null;
-		
 		sock=UserData.chatSocket;
 		try {
 			os=sock.getOutputStream();

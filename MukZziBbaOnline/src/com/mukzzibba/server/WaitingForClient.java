@@ -13,7 +13,7 @@ public class WaitingForClient {
 	
 	public WaitingForClient() {
 		try {
-			serv=new ServerSocket(5000);
+			serv=new ServerSocket(61223);
 			
 			while(true) {
 				try {

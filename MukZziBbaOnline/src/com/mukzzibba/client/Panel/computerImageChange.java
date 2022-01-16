@@ -4,12 +4,13 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 import com.mukzzibba.client.data.UserData;
 
 public class computerImageChange extends Thread {
 	
-	JButton com;
+	JLabel com;
 	Random ran;
 	int n;
 	ImageIcon rock;

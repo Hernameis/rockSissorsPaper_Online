@@ -1,19 +1,19 @@
 package com.mukzzibba.client.window;
 
-import java.awt.Dimension;
 import java.awt.Frame;
 
-public class LocationManager {
+public class Location {
 	
 	private static Frame frame;
 	
-	public static double centerOfMainFrameX(){
+	public static int startX(){
 		frame=ClientFrame.getInstance();
-//		frame.get
-		return 0;
+		return frame.getLocation().x+frame.getSize().width/2;
+		
 	}
 	
-	public static double centerOfMainFrameY(){
-		return 0;
+	public static int startY(){
+		frame=ClientFrame.getInstance();
+		return frame.getLocation().y+frame.getSize().height/2;
 	}
 }

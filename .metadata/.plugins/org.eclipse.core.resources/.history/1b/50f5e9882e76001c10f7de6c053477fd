@@ -1,0 +1,19 @@
+package com.mukzzibba.client.window;
+
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Point;
+
+public class LocationManager {
+	
+	private static Frame frame;
+	
+	public static Point mainPoint(){
+		frame=ClientFrame.getInstance();
+		return frame.getLocation();
+	}
+	
+	public static startY(){
+		
+	}
+}

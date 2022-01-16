@@ -57,10 +57,10 @@ public class LobbyPanel extends Panel{
 		
 		Panel southInfo=new Panel(new GridLayout(1,5));
 		Label score=new Label(""+UserData.me.score);
-		Label win=new Label(""+UserData.me.playNum);
-		Label draw=new Label(""+UserData.me.win);
+		Label win=new Label(""+UserData.me.win);
+		Label draw=new Label(""+UserData.me.draw);
 		Label lose=new Label(""+UserData.me.lose);
-		Label rate=new Label(""+UserData.me.winRatio);
+		Label rate=new Label(""+UserData.me.winRatio+"%");
 		southInfo.add(score);
 		southInfo.add(win);
 		southInfo.add(draw);
@@ -73,7 +73,7 @@ public class LobbyPanel extends Panel{
 		
 		Panel selectPanel=new Panel(new GridLayout(4,1));
 		Panel playPanel=new Panel(new GridLayout(1,3));
-		play=new PlayButton("«√∑π¿Ã");
+		play=new PlayButton("");
 		ImageIcon playIcon=new ImageIcon(".\\img\\play.png");
 		play.setIcon(playIcon);
 		playPanel.add(play);

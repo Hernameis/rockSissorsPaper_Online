@@ -7,6 +7,7 @@ import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.Point;
 import java.awt.TextField;
 
 import javax.swing.BorderFactory;
@@ -18,7 +19,7 @@ import com.mukzzibba.client.button.NicknameCheckButton;
 import com.mukzzibba.client.data.RegistData;
 import com.mukzzibba.client.data.UserData;
 
-public class RegisterFrame extends Frame{
+public class RegisterFrame extends Dialog{
 	private static final long serialVersionUID = 8949001772274532013L;
 	
 	JPanel p;
@@ -32,7 +33,7 @@ public class RegisterFrame extends Frame{
 	Label passRule;
 	
 	public RegisterFrame(Frame frame,boolean link) {
-		super();
+		super(ClientFrame.getInstance());
 		p=new JPanel(new BorderLayout());
 		p.setBorder(BorderFactory.createEmptyBorder(10,10,0,0));
 		
@@ -52,7 +53,7 @@ public class RegisterFrame extends Frame{
 
 		nameCheckButton=new NicknameCheckButton();
 		confirm=new ConfirmInRegisterButton("회원 가입",this);
-		namingRule=new Label("아이디 2-8 글자 ,공백 불가");
+		namingRule=new Label("닉네임 2-8 글자 ,공백 불가");
 		passRule=new Label("비밀번호 4-16 글자");
 		exit=new ExitButton("닫기", this);
 		
@@ -84,7 +85,7 @@ public class RegisterFrame extends Frame{
 		p.add(centerPanel, BorderLayout.CENTER);
 		p.add(southPanel, BorderLayout.SOUTH);
 		add(p);
-		setBounds(100,100,300,200);
+		setBounds(Location.startX()-150, Location.startY()-100,300,200);
 		setVisible(true);
 	}
 }

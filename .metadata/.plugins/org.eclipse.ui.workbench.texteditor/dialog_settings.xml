@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="System.ou" key="selection"/>
+		<item value="Scrol" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="scrol"/>
 			<item value="System.ou"/>
 			<item value="JLab"/>
 			<item value="naming"/>
@@ -15,7 +16,6 @@
 			<item value="TreeMap&lt;String,"/>
 			<item value="write"/>
 			<item value="make"/>
-			<item value="is"/>
 		</list>
 		<list key="replacehistory">
 			<item value="HashMap"/>

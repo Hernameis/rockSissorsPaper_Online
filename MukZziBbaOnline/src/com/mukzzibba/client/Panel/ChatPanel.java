@@ -23,7 +23,7 @@ public class ChatPanel extends Panel{
 	Panel mainPanel;
 	Panel southPanel;
 	Panel writePanel;
-	JTextArea showChat;
+	TextArea showChat;
 	JTextField toWrite;
 	SendButton send;
 	JButton startChat;
@@ -39,6 +39,7 @@ public class ChatPanel extends Panel{
 		startChat.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				UserData.isChat=1;
 				SignalToServer.sendMsg("chat");
 				startChat.setEnabled(false);
 				startChat.setText("접속 중");
@@ -47,22 +48,22 @@ public class ChatPanel extends Panel{
 			}
 		});
 		
-		
-		UserData.chat=new JTextArea(5,12);
 		showChat=UserData.chat;
-		JScrollPane chatScroll=new JScrollPane(showChat);
-		chatScroll.setPreferredSize(new Dimension(15,10));
 		
-		southPanel=new Panel(new GridLayout(2,1));
+		southPanel=new Panel(new GridLayout(1,1));
 		writePanel=new Panel(new BorderLayout());
 		UserData.toWrite=new JTextField();
 		toWrite=UserData.toWrite;
 		toWrite.setText("");
-		toWrite.setEditable(false);
+		if(UserData.isChat==0){
+			toWrite.setEditable(false);			
+		}
 		toWrite.addActionListener(new ChatSendAction());
 		
 		send=new SendButton("전송");
-		send.setEnabled(false);
+		if(UserData.isChat==0){
+			send.setEnabled(false);			
+		}
 		writePanel.add(toWrite, BorderLayout.CENTER);
 		writePanel.add(send, BorderLayout.EAST);
 		
@@ -70,7 +71,6 @@ public class ChatPanel extends Panel{
 		
 		mainPanel.add(startChat, BorderLayout.NORTH);
 		mainPanel.add(showChat, BorderLayout.CENTER);
-		mainPanel.add(chatScroll, BorderLayout.EAST);
 		mainPanel.add(southPanel ,BorderLayout.SOUTH);
 		
 		listPanel=new Panel(new BorderLayout());
@@ -81,6 +81,7 @@ public class ChatPanel extends Panel{
 		
 		this.add(mainPanel, BorderLayout.CENTER);
 		this.add(listPanel, BorderLayout.EAST);
+		this.add(new JButton("접속 중인 서버 : "+UserData.serverIp), BorderLayout.SOUTH);
 	}
 	
 	public class SendButton extends JButton{

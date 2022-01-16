@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Panel;
+import java.awt.TextArea;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -15,6 +16,10 @@ import java.io.IOException;
 
 
 
+
+
+
+import javax.swing.JTextArea;
 
 import com.mukzzibba.client.controller.PanelController;
 import com.mukzzibba.client.data.UserData;
@@ -73,5 +78,7 @@ public class ClientFrame extends Frame {
 	
 	public void start() {
 		new PanelController();
+		UserData.chat=new TextArea("",5,25,TextArea.SCROLLBARS_VERTICAL_ONLY);
+		UserData.chat.setEditable(false);
 	}
 }

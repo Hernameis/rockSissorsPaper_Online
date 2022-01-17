@@ -22,19 +22,4 @@ public class StreamCloser {
 		}
 	}
 	
-	public static void closeObjectInputStream(){
-		try {
-			UserData.ois.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public static void closeObjectOutputStream(){
-		try {
-			UserData.oos.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 }

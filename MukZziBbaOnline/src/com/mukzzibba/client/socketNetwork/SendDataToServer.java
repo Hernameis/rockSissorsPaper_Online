@@ -6,7 +6,7 @@ import java.io.OutputStream;
 
 import com.mukzzibba.client.data.LoginData;
 import com.mukzzibba.client.data.UserData;
-import com.mukzzibba.server.ResultData;
+import com.mukzzibba.server.data.ResultData;
 
 public class SendDataToServer {
 

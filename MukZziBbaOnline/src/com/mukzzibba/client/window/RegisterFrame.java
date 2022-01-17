@@ -85,7 +85,7 @@ public class RegisterFrame extends Dialog{
 		p.add(centerPanel, BorderLayout.CENTER);
 		p.add(southPanel, BorderLayout.SOUTH);
 		add(p);
-		setBounds(Location.startX()-150, Location.startY()-100,300,200);
+		setBounds(getMainLocation.startX()-150, getMainLocation.startY()-100,300,200);
 		setVisible(true);
 	}
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import com.mukzzibba.client.Panel.RankingPanel;
 import com.mukzzibba.client.data.UserData;
-import com.mukzzibba.server.ResultData;
+import com.mukzzibba.server.data.ResultData;
 import com.mukzzibba.server.userDb.UserInfo;
 
 public class ReceiveDataFromServer {

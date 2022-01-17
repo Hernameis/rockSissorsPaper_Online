@@ -61,7 +61,7 @@ public class NicknameDB {
 		return false;
 	}
 	
-	public void addToDBFile(String name){
+	public static void addToDBFile(String name){
 		File file;
 		HashSet<String> db;
 		FileOutputStream fos=null;

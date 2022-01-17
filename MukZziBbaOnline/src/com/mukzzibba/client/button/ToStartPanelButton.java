@@ -6,7 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.mukzzibba.client.controller.PanelController;
+import com.mukzzibba.client.Panel.PanelController;
+import com.mukzzibba.client.Panel.StartPanel;
 
 public class ToStartPanelButton extends JButton{
 	private static final long serialVersionUID = 5914294359027670989L;
@@ -16,7 +17,7 @@ public class ToStartPanelButton extends JButton{
 		addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PanelController.mainToStartPanel();
+				PanelController.onlyPanelChange(new StartPanel());
 			}
 		});
 	}

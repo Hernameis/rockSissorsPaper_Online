@@ -41,7 +41,6 @@ public class computerImageChange extends Thread {
 					break;
 			}
 			
-
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {

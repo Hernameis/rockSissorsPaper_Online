@@ -8,7 +8,7 @@ import java.net.Socket;
 
 import com.mukzzibba.client.data.UserData;
 
-public class ChatWriter {	// 전송버튼 눌러질 때
+public class ChatWriter {
 	
 	public static void sayToAll(String msg){
 		Socket sock=null; 

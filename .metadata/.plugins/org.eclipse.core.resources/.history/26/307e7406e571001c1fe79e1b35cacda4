@@ -1,8 +1,0 @@
-package com.mukzzibba.server;
-
-import java.io.InputStream;
-
-public class ServerData {
-	InputStream is;
-	OutputStream os;
-}

@@ -1,9 +1,0 @@
-package com.mukzzibba.server;
-
-public class ServerMain {
-	Server server;
-	
-	public static void main(String[] args) {
-		server=new Server();
-	}
-}

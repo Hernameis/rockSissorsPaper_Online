@@ -4,8 +4,8 @@ import java.net.Socket;
 
 import com.mukzzibba.client.data.LoginData;
 import com.mukzzibba.client.data.RegistData;
-import com.mukzzibba.server.ReceiveDataFromClient;
-import com.mukzzibba.server.SendDataToClient;
+import com.mukzzibba.server.socketNetwork.ReceiveDataFromClient;
+import com.mukzzibba.server.socketNetwork.SendDataToClient;
 
 public class Checker {
 	
@@ -16,13 +16,16 @@ public class Checker {
 		String pass=user.password.getText();
 		if(NicknameDB.isNameInDb(name)) {
 			if(isPasswordMatchNickname(name,pass)){
+				System.out.println("아이디 비번 일치");
 				SendDataToClient.intData(sock, 0);
 				SendDataToClient.userInfoData(sock,name);
 				return ;
 			} else {
+				System.out.println("비번 틑림");
 				SendDataToClient.intData(sock, 1);
 			}
 		} else {
+			System.out.println("닉 없음");
 			SendDataToClient.intData(sock, 2);
 		}
 	}
@@ -43,7 +46,7 @@ public class Checker {
 	public static boolean isPasswordMatchNickname(String name, String pass) {
 		UserInfo user=null;
 		user=UserDB.getUserFromFile(name);
-		if(user==null){
+		if(!user.password.equals(pass)){
 			return false;
 		}
 		return true;

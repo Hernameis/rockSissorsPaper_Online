@@ -1,8 +1,0 @@
-package com.mukzzibba.client.button;
-
-import java.awt.Button;
-
-public class RegisterButton extends Button{
-	
-	public RegisterButton
-}

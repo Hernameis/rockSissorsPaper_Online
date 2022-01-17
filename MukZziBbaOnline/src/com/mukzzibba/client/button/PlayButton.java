@@ -6,7 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.mukzzibba.client.controller.PanelController;
+import com.mukzzibba.client.Panel.PanelController;
+import com.mukzzibba.client.Panel.PlayPanel;
 import com.mukzzibba.client.data.UserData;
 
 public class PlayButton extends JButton{
@@ -17,7 +18,7 @@ public class PlayButton extends JButton{
 		addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PanelController.mainToPlayPanel();
+				PanelController.onlyPanelChange(new PlayPanel());
 				UserData.gameStart=1;
 			}
 		});

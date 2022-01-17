@@ -21,18 +21,16 @@ public class Register {
 		registUserToDB(name, pass, sock);
 	}
 	
-	public static void registUserToDB(String name, String pass, Socket sock){
-		NicknameDB nickDb=new NicknameDB();
-		UserDB userDb=new UserDB();
+	public static void registUserToDB(String name, String pass, Socket sock){ 
 		UserInfo userInfo=new UserInfo(name, pass);
 		String msg="회원가입 성공";
 		
 		if(NicknameDB.isNameInDb(name)){
 			msg="계정이 이미 존재합니다";
 		} else {
-			nickDb.addToDBFile(name);
-			userDb.addToDBFile(userInfo);			
+			NicknameDB.addToDBFile(name);
 		}
+		UserDB.addToDBFile(userInfo);
 		
 		sendMsgToClient(msg, sock);	
 	}

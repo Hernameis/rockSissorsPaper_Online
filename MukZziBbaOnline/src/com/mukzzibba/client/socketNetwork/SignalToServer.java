@@ -1,11 +1,8 @@
 package com.mukzzibba.client.socketNetwork;
 
-import java.awt.Dialog;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 
-import com.mukzzibba.server.ResultData;
-import com.mukzzibba.client.data.ClientSetter;
+import com.mukzzibba.server.data.ResultData;
 import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.client.window.ClientFrame;
 import com.mukzzibba.client.window.ErrorDialog;
@@ -50,7 +47,7 @@ public class SignalToServer {
 				SendDataToServer.loginData();
 				ResultData res=null;
 				res=ReceiveDataFromServer.resultData();
-				ClientSetter.setResultData(res);
+				UserData.result=res;
 			} else if (msg.equals("chat")) { 
 				SocketController.openChatSocket();
 				SendDataToServer.loginData(); 
@@ -71,38 +68,5 @@ public class SignalToServer {
 		}
 	}
 	
-	public static void sendLoginInfo() {
-		StreamOpener.openObjectOutputStream();
-		try {
-			UserData.oos.writeObject(UserData.login);
-			UserData.oos.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		StreamCloser.closeObjectOutputStream();
-	}
 	
-	public static void getResultData(){
-		ObjectInputStream ois=null;
-		try {
-			ois=new ObjectInputStream(UserData.is);
-			UserData.result=(ResultData)UserData.ois.readObject();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				ois.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
-
-	
-	public static void setLogin(int isLogin){
-		UserData.userChecked=isLogin;
-	}
 }

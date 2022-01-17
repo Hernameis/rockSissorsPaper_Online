@@ -24,21 +24,5 @@ public class StreamOpener {
 		}
 	}
 	
-	public static void openObjectInputStream(){
-		try {
-			UserData.ois=new ObjectInputStream(UserData.is);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
-	public static void openObjectOutputStream(){
-		try {
-			UserData.oos=new ObjectOutputStream(UserData.os);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 }

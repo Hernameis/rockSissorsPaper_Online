@@ -1,6 +1,5 @@
 package com.mukzzibba.client.window;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridLayout;
@@ -11,17 +10,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 
-
-
-
-
-
-
-
-
-import javax.swing.JTextArea;
-
-import com.mukzzibba.client.controller.PanelController;
+import com.mukzzibba.client.Panel.PanelController;
+import com.mukzzibba.client.Panel.StartPanel;
 import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.client.socketNetwork.ChatManager;
 
@@ -32,8 +22,37 @@ public class ClientFrame extends Frame {
 	private static ClientFrame mainFrame;
 	
 	private ClientFrame() {
-		addWindowListener(new WindowAdapter() {
-			
+		mainPanel=new Panel(new GridLayout(1,1));
+		this.add(mainPanel);
+
+		addWindowListener(new MainWindowAdapter());
+		
+		Toolkit tool=Toolkit.getDefaultToolkit();
+		Dimension screenDimension=tool.getScreenSize();
+		int screenX=(int)screenDimension.getWidth();
+		int screenY=(int)screenDimension.getHeight();
+		int frameWidth=500;
+		int frameHeight=500;
+		
+		setBounds((screenX-frameWidth)/2,(screenY-frameHeight)/2,frameWidth,frameHeight);
+		setVisible(true);
+	}
+	
+	public void begin() {
+		PanelController.onlyPanelChange(new StartPanel());
+		
+		UserData.chat=new TextArea("",5,25,TextArea.SCROLLBARS_VERTICAL_ONLY);
+		UserData.chat.setEditable(false);
+	}
+	
+	public static ClientFrame getInstance() {
+		if (mainFrame==null) {			
+			mainFrame=new ClientFrame();
+		}
+		return mainFrame;
+	}
+	
+	class MainWindowAdapter extends WindowAdapter {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				mainFrame.dispose();
@@ -43,7 +62,7 @@ public class ClientFrame extends Frame {
 			public void windowClosed(WindowEvent e) {
 				UserData.end=true;
 				try {
-					if(UserData.mainSocket!=null){						
+					if(UserData.mainSocket!=null){
 						UserData.mainSocket.close();
 					}
 					if(UserData.chatSocket!=null){
@@ -54,31 +73,7 @@ public class ClientFrame extends Frame {
 					e1.printStackTrace();
 				}
 			}
-		});
-		Toolkit tool=Toolkit.getDefaultToolkit();
-		mainPanel=new Panel(new GridLayout(1,1));
-		add(mainPanel);
-
-		Dimension screenDimension;
-		screenDimension=tool.getScreenSize();
-		int screenX=(int)screenDimension.getWidth();
-		int screenY=(int)screenDimension.getHeight();
-		int frameWidth=500;
-		int frameHeight=500;
-		setBounds((screenX-frameWidth)/2,(screenY-frameHeight)/2,frameWidth,frameHeight);
-		setVisible(true);
-	}
-	
-	public static ClientFrame getInstance() {
-		if (mainFrame==null) {			
-			mainFrame=new ClientFrame();
 		}
-		return mainFrame;
-	}
 	
-	public void start() {
-		new PanelController();
-		UserData.chat=new TextArea("",5,25,TextArea.SCROLLBARS_VERTICAL_ONLY);
-		UserData.chat.setEditable(false);
-	}
 }
+

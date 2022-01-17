@@ -1,6 +1,0 @@
-package com.mukzzibba.client.button;
-
-
-abstract public class MenuButton extends Button{
-	
-}

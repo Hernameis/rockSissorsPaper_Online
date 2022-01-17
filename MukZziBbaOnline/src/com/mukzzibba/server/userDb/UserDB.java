@@ -12,9 +12,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import com.mukzzibba.client.data.LoginData;
-import com.mukzzibba.server.RankingComparator;
-import com.mukzzibba.server.ReceiveDataFromClient;
-import com.mukzzibba.server.SendDataToClient;
+import com.mukzzibba.server.socketNetwork.ReceiveDataFromClient;
+import com.mukzzibba.server.socketNetwork.SendDataToClient;
+import com.mukzzibba.util.RankingComparator;
 
 
 public class UserDB {
@@ -60,7 +60,7 @@ public class UserDB {
 		return db;
 	}
 	
-	public void addToDBFile(UserInfo user){
+	public static void addToDBFile(UserInfo user){
 		TreeMap<String,UserInfo> db=readDBfromFile();
 		String key=new String(user.nickname);
 		db.put(key, user);

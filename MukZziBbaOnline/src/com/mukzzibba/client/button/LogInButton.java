@@ -5,7 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.mukzzibba.client.controller.PanelController;
+import com.mukzzibba.client.Panel.LobbyPanel;
+import com.mukzzibba.client.Panel.PanelController;
 import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.client.socketNetwork.SignalToServer;
 import com.mukzzibba.client.window.ErrorDialog;
@@ -22,7 +23,8 @@ public class LogInButton extends JButton{
 				SignalToServer.sendMsg("logi");
 				if(UserData.userChecked==0){
 					new ErrorDialog("로그인 성공");
-					PanelController.mainToLobbyPanel();
+					PanelController.onlyPanelChange(new LobbyPanel());
+					SignalToServer.sendMsg("logi");
 				} else if (UserData.userChecked==1) {
 					new ErrorDialog("비밀번호가 틀렸습니다");
 				} else if (UserData.userChecked==2) {

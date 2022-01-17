@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 
-import com.mukzzibba.server.userDb.DataController;
+import com.mukzzibba.server.userDb.SignalController;
+import com.mukzzibba.util.Closer;
 
 public class ClientListener extends Thread{
 	Socket sock;
@@ -22,7 +23,7 @@ public class ClientListener extends Thread{
 	@Override
 	public void run() {
 		msg=msgFromClient(sock);
-		DataController.SendResultToClient(msg, sock);
+		SignalController.SendResultToClient(msg, sock);
 		if(!msg.equals("chat")){			
 			Closer.closeSocket(sock);
 		}

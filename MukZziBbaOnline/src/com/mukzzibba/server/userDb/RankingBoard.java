@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 import com.mukzzibba.client.data.LoginData;
-import com.mukzzibba.server.RankingComparator;
-import com.mukzzibba.server.ReceiveDataFromClient;
-import com.mukzzibba.server.SendDataToClient;
+import com.mukzzibba.server.socketNetwork.ReceiveDataFromClient;
+import com.mukzzibba.server.socketNetwork.SendDataToClient;
+import com.mukzzibba.util.RankingComparator;
 
 
 public class RankingBoard {

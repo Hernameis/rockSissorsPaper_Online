@@ -1,15 +1,12 @@
 package com.mukzzibba.client.button;
 
-import java.awt.Button;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.mukzzibba.client.cheker.NameChecker;
 import com.mukzzibba.client.cheker.PassChecker;
-import com.mukzzibba.client.data.UserData;
 import com.mukzzibba.client.socketNetwork.SignalToServer;
 import com.mukzzibba.client.window.ErrorDialog;
 

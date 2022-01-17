@@ -3,7 +3,8 @@ package com.mukzzibba.client.button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.mukzzibba.client.controller.PanelController;
+import com.mukzzibba.client.Panel.PanelController;
+import com.mukzzibba.client.Panel.RankingPanel;
 import com.mukzzibba.client.socketNetwork.SignalToServer;
 
 public class RankingButton extends ButtonWithSendingMsg{
@@ -15,7 +16,7 @@ public class RankingButton extends ButtonWithSendingMsg{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SignalToServer.sendMsg("rank");
-				PanelController.mainToRankingPanel();
+				PanelController.onlyPanelChange(new RankingPanel());
 			}
 		});
 	}

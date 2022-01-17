@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import com.mukzzibba.server.ResultData;
+import com.mukzzibba.server.data.ResultData;
 import com.mukzzibba.server.userDb.UserInfo;
 
 public class UserData implements Serializable{
@@ -22,8 +22,8 @@ public class UserData implements Serializable{
 	
 	public static boolean end=false;
 	
-	public static String serverIp="222.109.234.52";
-	public static int port=61223;
+	public static String serverIp="127.0.0.1";
+	public static int port=5000;
 	public static int userChecked;
 	
 	public static Socket mainSocket;

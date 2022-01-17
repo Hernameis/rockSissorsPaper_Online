@@ -1,9 +1,0 @@
-package com.mukzzibba.client.controller;
-
-import java.awt.Panel;
-
-public class PanelData {
-	public static Panel mainPanel;
-	public static Panel startPanel;
-	public static Panel robbyPanel;
-}

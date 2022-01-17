@@ -10,7 +10,7 @@ import java.awt.Panel;
 
 import com.mukzzibba.client.button.ExitButton;
 import com.mukzzibba.client.data.UserData;
-import com.mukzzibba.server.ResultData;
+import com.mukzzibba.server.data.ResultData;
 
 public class GameResultDialog extends Dialog{
 	private static final long serialVersionUID = 3208370987402624793L;
@@ -33,7 +33,7 @@ public class GameResultDialog extends Dialog{
 		mainPanel.add(resultPanel, BorderLayout.CENTER);
 		mainPanel.add(new ExitButton("´Ý±â", this), BorderLayout.SOUTH);
 		add(mainPanel);
-		setBounds(Location.startX()-100,Location.startY()-100,200,200);
+		setBounds(getMainLocation.startX()-100,getMainLocation.startY()-100,200,200);
 		setVisible(true);
 	}
 	

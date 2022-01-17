@@ -31,7 +31,7 @@ public class StartPanel extends Panel{
 	JButton registerButton;
 	JButton loginButton;
 	JButton exitButton;
-	LoginData loginData;
+	LoginData loginDataToSend;
 	
 	public StartPanel() {
 		frame=ClientFrame.getInstance();
@@ -55,19 +55,19 @@ public class StartPanel extends Panel{
 		
 		
 		UserData.login=new LoginData();
-		loginData=UserData.login;
+		loginDataToSend=UserData.login;
 		
-		loginData.nickname=new TextField();
-		loginData.password=new TextField();
-		loginData.password.setEchoChar('*');
+		loginDataToSend.nickname=new TextField();
+		loginDataToSend.password=new TextField();
+		loginDataToSend.password.setEchoChar('*');
 		registerButton=new RegisterButton("회원 가입");
 		loginButton=new LogInButton("로그인");
 		exitButton=new ExitButton("나가기", frame);
 		
 		loginPanel.add(new Label("닉네임"));
-		loginPanel.add(loginData.nickname);
+		loginPanel.add(loginDataToSend.nickname);
 		loginPanel.add(new Label("비밀번호"));
-		loginPanel.add(loginData.password);
+		loginPanel.add(loginDataToSend.password);
 		loginPanel.add(loginButton);
 		loginPanel.add(registerButton);
 

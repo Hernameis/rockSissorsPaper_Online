@@ -1,16 +1,13 @@
 package com.mukzzibba.client.Panel;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Panel;
 import java.awt.TextArea;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -19,7 +16,8 @@ import com.mukzzibba.client.socketNetwork.ChatWriter;
 import com.mukzzibba.client.socketNetwork.SignalToServer;
 
 public class ChatPanel extends Panel{
-
+	private static final long serialVersionUID = 454647050883126278L;
+	
 	Panel mainPanel;
 	Panel southPanel;
 	Panel writePanel;

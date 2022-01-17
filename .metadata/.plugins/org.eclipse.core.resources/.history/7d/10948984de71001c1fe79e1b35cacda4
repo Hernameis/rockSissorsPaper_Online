@@ -1,6 +1,0 @@
-package com.mukzzibba.client.controller;
-
-public class PanelMaker {
-	
-	public static void make
-}

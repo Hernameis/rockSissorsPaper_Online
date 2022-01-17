@@ -6,7 +6,7 @@ public class UserInfo implements Serializable, Comparable<UserInfo>{
 	private static final long serialVersionUID = -3534762134651827696L;
 	
 	public String nickname;
-	transient public String password;
+	public String password;
 	public int score;
 	public int win;
 	public int lose;
@@ -16,8 +16,8 @@ public class UserInfo implements Serializable, Comparable<UserInfo>{
 	public int rank;
 	
 	public UserInfo(String name, String pass){
-		nickname=name;
-		password=pass;
+		nickname=new String(name);
+		password=new String(pass);
 		playNum=0;
 		score=0;
 		win=0;
